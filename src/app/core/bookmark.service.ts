@@ -1,6 +1,6 @@
 import { Injectable, computed, signal } from '@angular/core';
 
-const STORAGE_KEY = 'event-floor-bookmarks';
+const STORAGE_KEY = 'konverge-edge-bookmarks';
 
 @Injectable({ providedIn: 'root' })
 export class BookmarkService {

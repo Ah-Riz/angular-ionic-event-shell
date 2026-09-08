@@ -4,7 +4,7 @@ export interface FakeSession {
   email: string;
 }
 
-const STORAGE_KEY = 'event-floor-session';
+const STORAGE_KEY = 'konverge-edge-session';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

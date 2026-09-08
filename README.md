@@ -1,4 +1,4 @@
-# Event Floor
+# KonvergeEdge
 
 Portfolio learning app: an **Angular 19 + Ionic** mobile shell for a multi-day B2B conference attendee.
 
@@ -21,9 +21,9 @@ Built to show ramp-up for frontend roles that own cross-platform event / confere
 
 ## Fake auth / localStorage
 
-- Login stores `{ email }` under `event-floor-session`
+- Login stores `{ email }` under `konverge-edge-session`
 - `authGuard` protects app routes; missing session redirects to `/login`
-- Bookmarks store session ids under `event-floor-bookmarks`
+- Bookmarks store session ids under `konverge-edge-bookmarks`
 - “Request meeting” confirms in an alert, then shows a toast — no network call
 
 This is intentional prototype design, not a security model.

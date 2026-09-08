@@ -1,6 +1,5 @@
 {
-  "name": "event-floor",
-  "app_id": "",
+  "name": "KonvergeEdge",
   "type": "angular-standalone",
   "integrations": {}
 }
