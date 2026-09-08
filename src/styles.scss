@@ -32,6 +32,7 @@ h2,
 .chip {
   display: inline-flex;
   align-items: center;
+  min-height: 1.5rem;
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
   border: 1px solid var(--ef-line);
@@ -44,8 +45,48 @@ h2,
   line-height: 1.4;
 }
 
-.chip + .chip {
-  margin-left: 0.35rem;
+.ef-floor-bg {
+  background:
+    linear-gradient(165deg, rgba(10, 102, 194, 0.06) 0%, transparent 45%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(215, 222, 231, 0.45) 23px,
+      rgba(215, 222, 231, 0.45) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      rgba(215, 222, 231, 0.45) 23px,
+      rgba(215, 222, 231, 0.45) 24px
+    ),
+    var(--ef-floor);
+}
+
+.ef-shell {
+  width: 100%;
+  max-width: var(--ef-content-max);
+  margin-inline: auto;
+  padding-inline: var(--ef-gutter) var(--ef-gutter-right);
+  box-sizing: border-box;
+}
+
+.ef-shell--wide {
+  max-width: var(--ef-directory-max);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ef-focus);
+}
+
+button:focus-visible,
+ion-button:focus-visible,
+.industry-chip:focus-visible,
+.attendee-toggle:focus-visible {
+  box-shadow: var(--ef-focus);
 }
 
 @media (prefers-reduced-motion: reduce) {

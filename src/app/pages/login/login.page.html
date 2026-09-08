@@ -1,36 +1,43 @@
 <ion-content class="login-content" [fullscreen]="true">
-  <div class="login-shell">
-    <div class="login-panel">
-      <p class="brand-display">Event Floor</p>
-      <p class="lede">Browse the agenda, bookmark sessions, and find people on the floor.</p>
-
-      <div class="login-form">
-        <ion-input
-          class="field"
-          label="Email"
-          labelPlacement="stacked"
-          type="email"
-          fill="outline"
-          [(ngModel)]="email"
-          autocomplete="email"
-          required
-        ></ion-input>
-        <ion-input
-          class="field"
-          label="Password (optional)"
-          labelPlacement="stacked"
-          type="password"
-          fill="outline"
-          [(ngModel)]="password"
-          autocomplete="current-password"
-        ></ion-input>
+  <div class="login-shell ef-floor-bg">
+    <div class="login-layout">
+      <div class="login-brand">
+        <p class="brand-display">Event Floor</p>
+        <p class="lede">
+          Browse the agenda, bookmark sessions, and find people on the floor.
+        </p>
       </div>
 
-      <ion-button expand="block" class="enter-btn" (click)="submit()" [disabled]="!email.trim()">
-        Enter conference
-      </ion-button>
+      <div class="login-panel">
+        <p class="panel-kicker">Sign in</p>
+        <div class="login-form">
+          <ion-input
+            class="field"
+            label="Email"
+            labelPlacement="stacked"
+            type="email"
+            fill="outline"
+            [(ngModel)]="email"
+            autocomplete="email"
+            required
+          ></ion-input>
+          <ion-input
+            class="field"
+            label="Password (optional)"
+            labelPlacement="stacked"
+            type="password"
+            fill="outline"
+            [(ngModel)]="password"
+            autocomplete="current-password"
+          ></ion-input>
+        </div>
 
-      <p class="muted hint">Demo sign-in — any email works. Password is unused.</p>
+        <ion-button expand="block" class="enter-btn" (click)="submit()" [disabled]="!email.trim()">
+          Enter conference
+        </ion-button>
+
+        <p class="muted hint">Demo sign-in — any email works. Password is unused.</p>
+      </div>
     </div>
   </div>
 </ion-content>

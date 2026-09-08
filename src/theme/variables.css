@@ -12,6 +12,12 @@
   --ef-font-display: "Sora", system-ui, sans-serif;
   --ef-font-body: "IBM Plex Sans", system-ui, sans-serif;
 
+  --ef-gutter: max(1rem, env(safe-area-inset-left));
+  --ef-gutter-right: max(1rem, env(safe-area-inset-right));
+  --ef-content-max: 40rem;
+  --ef-directory-max: 60rem;
+  --ef-focus: 0 0 0 3px rgba(10, 102, 194, 0.35);
+
   --ion-font-family: var(--ef-font-body);
 
   --ion-color-primary: var(--ef-signal);
@@ -32,4 +38,26 @@
   --ion-card-background: var(--ef-paper);
   --ion-tab-bar-background: var(--ef-paper);
   --ion-border-color: var(--ef-line);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --ef-content-max: 42rem;
+    --ef-gutter: 1.5rem;
+    --ef-gutter-right: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --ef-content-max: 45rem;
+    --ef-directory-max: 56rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --ef-content-max: 48rem;
+    --ef-directory-max: 60rem;
+  }
 }

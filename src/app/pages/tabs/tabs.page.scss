@@ -1,8 +1,16 @@
+ion-tabs {
+  background: var(--ef-floor);
+}
+
 ion-tab-bar {
   --background: var(--ef-paper);
   --border: 0;
   border-top: 1px solid var(--ef-line);
-  height: 56px;
+  height: calc(56px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  max-width: var(--ef-directory-max);
+  margin-inline: auto;
+  width: 100%;
 }
 
 ion-tab-button {
@@ -10,6 +18,7 @@ ion-tab-button {
   --color-selected: var(--ef-signal);
   font-size: 0.7rem;
   font-weight: 600;
+  min-height: 48px;
 }
 
 ion-tab-button.tab-selected {
@@ -18,4 +27,12 @@ ion-tab-button.tab-selected {
 
 ion-tab-button ion-icon {
   font-size: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  ion-tab-bar {
+    border-inline: 1px solid var(--ef-line);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
 }

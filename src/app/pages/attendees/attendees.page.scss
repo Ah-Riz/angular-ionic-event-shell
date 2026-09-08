@@ -1,11 +1,27 @@
-ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
+.page-content {
+  --background: transparent;
 }
 
-ion-title {
+.page-header ion-toolbar {
+  --border-width: 0 0 1px 0;
+  --border-color: var(--ef-line);
+  --padding-start: var(--ef-gutter);
+  --padding-end: var(--ef-gutter-right);
+}
+
+.page-header ion-title {
   font-family: var(--ef-font-display);
   font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .page-header ion-toolbar {
+    --padding-start: max(var(--ef-gutter), calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter)));
+    --padding-end: max(
+      var(--ef-gutter-right),
+      calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter-right))
+    );
+  }
 }
 
 .directory-top {
@@ -14,22 +30,22 @@ ion-title {
   position: sticky;
   top: 0;
   z-index: 2;
-  padding-bottom: 0.65rem;
+  padding-bottom: 0.75rem;
 }
 
 ion-searchbar {
   --background: var(--ef-floor);
   --border-radius: 8px;
   --box-shadow: none;
-  padding-top: 0.5rem;
-  padding-bottom: 0.25rem;
+  padding: 0.65rem 0 0.35rem;
+  min-height: 3rem;
 }
 
 .industry-row {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.45rem;
   overflow-x: auto;
-  padding: 0 0.85rem;
+  padding-bottom: 0.15rem;
   scrollbar-width: none;
 }
 
@@ -39,6 +55,7 @@ ion-searchbar {
 
 .industry-chip {
   flex: 0 0 auto;
+  min-height: 2.25rem;
   border: 1px solid var(--ef-line);
   border-radius: 999px;
   background: var(--ef-floor);
@@ -46,7 +63,7 @@ ion-searchbar {
   font-family: var(--ef-font-body);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   cursor: pointer;
 }
 
@@ -57,10 +74,11 @@ ion-searchbar {
 }
 
 .attendee-list {
-  padding: 0.75rem 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  padding-top: 0.9rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
 }
 
 .attendee-card {
@@ -68,6 +86,7 @@ ion-searchbar {
   border-radius: 10px;
   background: var(--ef-paper);
   overflow: hidden;
+  box-shadow: 0 1px 0 rgba(11, 18, 32, 0.02);
 }
 
 .attendee-toggle {
@@ -76,7 +95,8 @@ ion-searchbar {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.9rem 0.95rem;
+  min-height: 4.25rem;
+  padding: 0.95rem 1rem;
   border: 0;
   background: transparent;
   text-align: left;
@@ -92,12 +112,12 @@ ion-searchbar {
 }
 
 .attendee-meta {
-  margin: 0.2rem 0 0;
+  margin: 0.25rem 0 0;
   font-size: 0.8125rem;
 }
 
 .attendee-detail {
-  padding: 0 0.95rem 0.95rem;
+  padding: 0 1rem 1rem;
   border-top: 1px solid var(--ef-line);
   animation: open 200ms ease-out;
 }
@@ -110,6 +130,7 @@ ion-searchbar {
 }
 
 .empty {
+  grid-column: 1 / -1;
   padding: 1.5rem 0.25rem;
 }
 
@@ -119,6 +140,30 @@ ion-searchbar {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .attendee-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    padding-top: 1.15rem;
+  }
+
+  .attendee-copy h2 {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .attendee-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .industry-row {
+    flex-wrap: wrap;
+    overflow: visible;
   }
 }
 

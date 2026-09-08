@@ -1,15 +1,28 @@
-ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
+.page-content {
+  --background: transparent;
 }
 
-ion-title {
+.page-header ion-toolbar {
+  --border-width: 0 0 1px 0;
+  --border-color: var(--ef-line);
+  --padding-start: var(--ef-gutter);
+  --padding-end: var(--ef-gutter-right);
+}
+
+.page-header ion-title {
   font-family: var(--ef-font-display);
   font-weight: 600;
 }
 
+@media (min-width: 640px) {
+  .page-header ion-toolbar {
+    --padding-start: max(var(--ef-gutter), calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter)));
+    --padding-end: max(var(--ef-gutter-right), calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter-right)));
+  }
+}
+
 .agenda-top {
-  padding: 0.75rem 1rem 0;
+  padding: 0.75rem 0 0;
   background: var(--ef-paper);
   border-bottom: 1px solid var(--ef-line);
   position: sticky;
@@ -26,7 +39,8 @@ ion-title {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.35rem 0 0.75rem;
+  padding: 0.35rem 0 0.85rem;
+  min-height: 2.75rem;
 }
 
 .filter-label {
@@ -36,12 +50,13 @@ ion-title {
 }
 
 .timeline {
-  padding: 1rem 1rem 2rem;
+  padding-top: 1.15rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
 }
 
 .session-row {
   display: grid;
-  grid-template-columns: 3.25rem 1rem 1fr;
+  grid-template-columns: 3.25rem 1rem minmax(0, 1fr);
   column-gap: 0.65rem;
   min-height: 5.5rem;
 }
@@ -99,6 +114,7 @@ ion-title {
 
 .session-body {
   padding: 0 0 1.25rem;
+  background: transparent;
 }
 
 .session-head {
@@ -116,13 +132,15 @@ ion-title {
 }
 
 .bookmark-btn {
-  margin: -0.35rem -0.5rem 0 0;
+  margin: -0.25rem -0.35rem 0 0;
+  min-width: 44px;
+  min-height: 44px;
   --padding-start: 0.35rem;
   --padding-end: 0.35rem;
 }
 
 .bookmark-btn ion-icon {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   transition: transform 160ms ease;
 }
 
@@ -146,7 +164,46 @@ ion-title {
 }
 
 .empty {
-  padding: 2rem 1.25rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .session-row {
+    grid-template-columns: 4rem 1.15rem minmax(0, 1fr);
+    column-gap: 0.9rem;
+  }
+
+  .time-col {
+    font-size: 0.8125rem;
+  }
+
+  .session-body {
+    padding-bottom: 1.5rem;
+  }
+
+  .session-body h2 {
+    font-size: 1.12rem;
+  }
+
+  .desc {
+    font-size: 0.9375rem;
+    max-width: 62ch;
+  }
+
+  .node {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .timeline {
+    padding-top: 1.75rem;
+  }
+
+  .session-body h2 {
+    font-size: 1.2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

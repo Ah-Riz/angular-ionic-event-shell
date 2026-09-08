@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border page-header">
   <ion-toolbar>
     <ion-title>Agenda</ion-title>
     <ion-buttons slot="end">
@@ -9,31 +9,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="page-content ef-floor-bg">
   @if (days().length) {
     <div class="agenda-top">
-      <ion-segment
-        [value]="activeDay()"
-        (ionChange)="onDayChange($event.detail.value)"
-        class="day-segment"
-      >
-        @for (day of days(); track day) {
-          <ion-segment-button [value]="day">
-            <ion-label>{{ day | date: 'EEE d MMM' }}</ion-label>
-          </ion-segment-button>
-        }
-      </ion-segment>
+      <div class="ef-shell">
+        <ion-segment
+          [value]="activeDay()"
+          (ionChange)="onDayChange($event.detail.value)"
+          class="day-segment"
+        >
+          @for (day of days(); track day) {
+            <ion-segment-button [value]="day">
+              <ion-label>{{ day | date: 'EEE d MMM' }}</ion-label>
+            </ion-segment-button>
+          }
+        </ion-segment>
 
-      <div class="filter-row">
-        <span class="filter-label">My bookmarks</span>
-        <ion-toggle
-          [checked]="bookmarksOnly()"
-          (ionChange)="onBookmarksOnly($event.detail.checked)"
-        ></ion-toggle>
+        <div class="filter-row">
+          <span class="filter-label">My bookmarks</span>
+          <ion-toggle
+            [checked]="bookmarksOnly()"
+            (ionChange)="onBookmarksOnly($event.detail.checked)"
+          ></ion-toggle>
+        </div>
       </div>
     </div>
 
-    <div class="timeline" role="list">
+    <div class="ef-shell timeline" role="list">
       @for (session of visibleSessions(); track session.id; let last = $last) {
         <article class="session-row" role="listitem" [class.is-last]="last">
           <div class="time-col">
@@ -51,7 +53,6 @@
               </div>
               <ion-button
                 fill="clear"
-                size="small"
                 class="bookmark-btn"
                 (click)="toggleBookmark(session.id)"
                 [attr.aria-label]="isBookmarked(session.id) ? 'Remove bookmark' : 'Bookmark session'"
@@ -74,6 +75,6 @@
       }
     </div>
   } @else {
-    <div class="empty muted">Loading agenda…</div>
+    <div class="ef-shell empty muted">Loading agenda…</div>
   }
 </ion-content>

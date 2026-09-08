@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border page-header">
   <ion-toolbar>
     <ion-title>Attendees</ion-title>
     <ion-buttons slot="end">
@@ -9,39 +9,41 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="page-content ef-floor-bg">
   <div class="directory-top">
-    <ion-searchbar
-      placeholder="Search name, company, industry"
-      [debounce]="200"
-      (ionInput)="onSearch($event.detail.value)"
-    ></ion-searchbar>
+    <div class="ef-shell ef-shell--wide">
+      <ion-searchbar
+        placeholder="Search name, company, industry"
+        [debounce]="200"
+        (ionInput)="onSearch($event.detail.value)"
+      ></ion-searchbar>
 
-    <div class="industry-row" role="list">
-      <button
-        type="button"
-        class="industry-chip"
-        role="listitem"
-        [class.active]="industry() === 'all'"
-        (click)="onIndustry('all')"
-      >
-        All
-      </button>
-      @for (item of industries(); track item) {
+      <div class="industry-row" role="list">
         <button
           type="button"
           class="industry-chip"
           role="listitem"
-          [class.active]="industry() === item"
-          (click)="onIndustry(item)"
+          [class.active]="industry() === 'all'"
+          (click)="onIndustry('all')"
         >
-          {{ item }}
+          All
         </button>
-      }
+        @for (item of industries(); track item) {
+          <button
+            type="button"
+            class="industry-chip"
+            role="listitem"
+            [class.active]="industry() === item"
+            (click)="onIndustry(item)"
+          >
+            {{ item }}
+          </button>
+        }
+      </div>
     </div>
   </div>
 
-  <div class="attendee-list">
+  <div class="ef-shell ef-shell--wide attendee-list">
     @for (attendee of filtered(); track attendee.id) {
       <article
         class="attendee-card"
