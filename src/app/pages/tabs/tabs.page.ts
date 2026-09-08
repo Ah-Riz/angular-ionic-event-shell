@@ -9,9 +9,9 @@ import {
   IonTabs,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { calendarOutline, peopleOutline } from 'ionicons/icons';
+import { calendarOutline, homeOutline, peopleOutline } from 'ionicons/icons';
 
-addIcons({ calendarOutline, peopleOutline });
+addIcons({ calendarOutline, homeOutline, peopleOutline });
 
 @Component({
   selector: 'app-tabs',

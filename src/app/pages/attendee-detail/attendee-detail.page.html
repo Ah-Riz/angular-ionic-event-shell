@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border page-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/attendees" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Attendee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content ef-floor-bg">
+  <div class="ef-shell ef-enter detail-shell">
+    @if (attendee() === undefined) {
+      <div class="skeleton-stack" aria-hidden="true">
+        <div class="skel skel-avatar"></div>
+        <div class="skel skel-title"></div>
+        <div class="skel skel-block"></div>
+      </div>
+    } @else if (!attendee()) {
+      <div class="empty-state">
+        <p>Attendee not found.</p>
+        <ion-button fill="outline" routerLink="/tabs/attendees">Browse attendees</ion-button>
+      </div>
+    } @else {
+      @if (attendee(); as person) {
+        <div class="profile-card">
+          <span class="avatar" [style.background]="person.avatarColor">{{ initials() }}</span>
+          <h1>{{ person.name }}</h1>
+          <p class="role">{{ person.title }}</p>
+          <p class="company muted">{{ person.company }} · {{ person.industry }}</p>
+          <span class="chip">{{ person.industry }}</span>
+        </div>
+
+        <section class="bio-block">
+          <h2>About</h2>
+          <p>{{ person.bio }}</p>
+        </section>
+
+        <ion-button expand="block" class="meet-btn" (click)="requestMeeting()">
+          Request meeting
+        </ion-button>
+        <p class="muted hint">Prototype action — confirms locally, then shows a toast.</p>
+      }
+    }
+  </div>
+</ion-content>

@@ -2,57 +2,163 @@
   {
     "id": "a1",
     "name": "Maya Chen",
+    "title": "Head of Product",
     "company": "Northwind Events",
     "industry": "Event Tech",
-    "bio": "Product lead for attendee mobile experiences across multi-day B2B conferences."
+    "bio": "Product lead for attendee mobile experiences across multi-day B2B conferences.",
+    "avatarColor": "#0a66c2"
   },
   {
     "id": "a2",
     "name": "Jordan Blake",
+    "title": "Analytics Lead",
     "company": "Harbor Analytics",
     "industry": "SaaS",
-    "bio": "Builds dashboards for exhibitors measuring booth traffic and meeting quality."
+    "bio": "Builds dashboards for exhibitors measuring booth traffic and meeting quality.",
+    "avatarColor": "#0f766e"
   },
   {
     "id": "a3",
     "name": "Priya Nair",
+    "title": "Partnerships Manager",
     "company": "Ledgerline",
     "industry": "Fintech",
-    "bio": "Partnerships manager looking for venue and payment integrations for trade shows."
+    "bio": "Looking for venue and payment integrations for trade shows and roadshows.",
+    "avatarColor": "#b45309"
   },
   {
     "id": "a4",
     "name": "Sam Ortiz",
+    "title": "Design Director",
     "company": "Brightfield Studios",
     "industry": "Design",
-    "bio": "Designs mobile-first agenda and directory UIs for enterprise event products."
+    "bio": "Designs mobile-first agenda and directory UIs for enterprise event products.",
+    "avatarColor": "#7c3aed"
   },
   {
     "id": "a5",
     "name": "Elena Rossi",
+    "title": "Director of Operations",
     "company": "Summit Ops",
     "industry": "Event Tech",
-    "bio": "Operations director focused on on-site check-in and session capacity planning."
+    "bio": "Owns on-site check-in, session capacity, and floor logistics for large venues.",
+    "avatarColor": "#be123c"
   },
   {
     "id": "a6",
     "name": "Chris Adeyemi",
+    "title": "Logistics Manager",
     "company": "ParcelWorks",
     "industry": "Logistics",
-    "bio": "Exploring sponsor logistics tools and badge printing workflows for expo floors."
+    "bio": "Exploring sponsor logistics tools and badge printing workflows for expo floors.",
+    "avatarColor": "#0369a1"
   },
   {
     "id": "a7",
     "name": "Hannah Park",
+    "title": "Frontend Engineer",
     "company": "Cloudspan",
     "industry": "SaaS",
-    "bio": "Frontend engineer evaluating Angular + Ionic stacks for cross-platform event shells."
+    "bio": "Evaluating Angular + Ionic stacks for cross-platform event shells.",
+    "avatarColor": "#047857"
   },
   {
     "id": "a8",
     "name": "Omar Haddad",
+    "title": "Investor",
     "company": "Meridian Capital",
     "industry": "Fintech",
-    "bio": "Investor attending to meet founders building tools for conference organizers."
+    "bio": "Meeting founders building tools for conference organizers and exhibitors.",
+    "avatarColor": "#4338ca"
+  },
+  {
+    "id": "a9",
+    "name": "Nina Volkov",
+    "title": "Community Lead",
+    "company": "Floorhouse",
+    "industry": "Event Tech",
+    "bio": "Runs meetup formats that turn cold hallway chats into booked follow-ups.",
+    "avatarColor": "#c2410c"
+  },
+  {
+    "id": "a10",
+    "name": "Theo Martins",
+    "title": "Staff Engineer",
+    "company": "Relaykit",
+    "industry": "SaaS",
+    "bio": "Works on offline-friendly client state for agenda and bookmark sync.",
+    "avatarColor": "#0e7490"
+  },
+  {
+    "id": "a11",
+    "name": "Aisha Rahman",
+    "title": "UX Researcher",
+    "company": "Pathfield",
+    "industry": "Design",
+    "bio": "Studies how attendees actually navigate multi-day schedules under time pressure.",
+    "avatarColor": "#a21caf"
+  },
+  {
+    "id": "a12",
+    "name": "Ben Cartwright",
+    "title": "Expo Director",
+    "company": "Westline Shows",
+    "industry": "Event Tech",
+    "bio": "Plans booth maps, sponsor packages, and floor traffic for regional trade shows.",
+    "avatarColor": "#1d4ed8"
+  },
+  {
+    "id": "a13",
+    "name": "Lina Okonkwo",
+    "title": "Product Marketing",
+    "company": "Signalbay",
+    "industry": "SaaS",
+    "bio": "Turns conference demos into post-event pipeline without drowning sales teams.",
+    "avatarColor": "#b91c1c"
+  },
+  {
+    "id": "a14",
+    "name": "Marcus Wei",
+    "title": "Security Engineer",
+    "company": "Cleargate",
+    "industry": "Fintech",
+    "bio": "Advises event apps on pragmatic auth UX when a full IdP is not ready yet.",
+    "avatarColor": "#115e59"
+  },
+  {
+    "id": "a15",
+    "name": "Sofia Alvarez",
+    "title": "Venue Partnerships",
+    "company": "Harbor Convention Center",
+    "industry": "Hospitality",
+    "bio": "Connects organizers with rooms, AV, and wayfinding that match the agenda.",
+    "avatarColor": "#9a3412"
+  },
+  {
+    "id": "a16",
+    "name": "Kenji Sato",
+    "title": "Mobile Lead",
+    "company": "Tokai Soft",
+    "industry": "SaaS",
+    "bio": "Ships Ionic shells that feel native on phone and readable on tablet.",
+    "avatarColor": "#1e40af"
+  },
+  {
+    "id": "a17",
+    "name": "Amelia Brooks",
+    "title": "Content Producer",
+    "company": "Stagecraft Media",
+    "industry": "Media",
+    "bio": "Produces keynotes and track sessions that stay on time and on message.",
+    "avatarColor": "#6d28d9"
+  },
+  {
+    "id": "a18",
+    "name": "Diego Fernandez",
+    "title": "Founder",
+    "company": "Meetline",
+    "industry": "Event Tech",
+    "bio": "Building lightweight meeting request flows that stay honest about backend limits.",
+    "avatarColor": "#0f766e"
   }
 ]

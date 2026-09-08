@@ -1,17 +1,19 @@
 <ion-header class="ion-no-border page-header">
   <ion-toolbar>
     <ion-title>Agenda</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()" aria-label="Log out">
-        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="page-content ef-floor-bg">
-  @if (days().length) {
-    <div class="agenda-top">
+  @if (!ready()) {
+    <div class="ef-shell skeleton-stack" aria-hidden="true">
+      <div class="skel skel-bar"></div>
+      <div class="skel skel-row"></div>
+      <div class="skel skel-row"></div>
+      <div class="skel skel-row"></div>
+    </div>
+  } @else if (days().length) {
+    <div class="agenda-top ef-enter">
       <div class="ef-shell">
         <ion-segment
           [value]="activeDay()"
@@ -36,8 +38,16 @@
     </div>
 
     <div class="ef-shell timeline" role="list">
-      @for (session of visibleSessions(); track session.id; let last = $last) {
-        <article class="session-row" role="listitem" [class.is-last]="last">
+      @for (session of visibleSessions(); track session.id; let last = $last; let i = $index) {
+        <article
+          class="session-row ef-stagger"
+          [style.--i]="i"
+          role="listitem"
+          [class.is-last]="last"
+          (click)="openSession(session.id)"
+          (keyup.enter)="openSession(session.id)"
+          tabindex="0"
+        >
           <div class="time-col">
             <span class="start">{{ session.startTime }}</span>
             <span class="end">{{ session.endTime }}</span>
@@ -50,31 +60,36 @@
               <div class="chips">
                 <span class="chip">{{ session.track }}</span>
                 <span class="chip">{{ session.room }}</span>
+                <span class="chip">{{ session.level }}</span>
               </div>
-              <ion-button
-                fill="clear"
+              <button
+                type="button"
                 class="bookmark-btn"
-                (click)="toggleBookmark(session.id)"
+                (click)="toggleBookmark($event, session.id)"
                 [attr.aria-label]="isBookmarked(session.id) ? 'Remove bookmark' : 'Bookmark session'"
               >
                 <ion-icon
-                  slot="icon-only"
                   [name]="isBookmarked(session.id) ? 'bookmark' : 'bookmark-outline'"
                   [color]="isBookmarked(session.id) ? 'primary' : 'medium'"
                 ></ion-icon>
-              </ion-button>
+              </button>
             </div>
             <h2>{{ session.title }}</h2>
             <p class="desc">{{ session.description }}</p>
           </div>
         </article>
       } @empty {
-        <p class="empty muted">
-          {{ bookmarksOnly() ? 'No bookmarked sessions this day.' : 'No sessions.' }}
-        </p>
+        <div class="empty-state">
+          <p class="muted">
+            {{ bookmarksOnly() ? 'No bookmarked sessions this day.' : 'No sessions.' }}
+          </p>
+          @if (bookmarksOnly()) {
+            <button type="button" class="text-action" (click)="onBookmarksOnly(false)">
+              Show all sessions
+            </button>
+          }
+        </div>
       }
     </div>
-  } @else {
-    <div class="ef-shell empty muted">Loading agenda…</div>
   }
 </ion-content>

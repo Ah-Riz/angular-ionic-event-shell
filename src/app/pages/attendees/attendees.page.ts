@@ -2,55 +2,38 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import {
-  IonButton,
-  IonButtons,
   IonContent,
   IonHeader,
-  IonIcon,
   IonSearchbar,
   IonTitle,
   IonToolbar,
-  ToastController,
 } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { chevronDownOutline, chevronUpOutline, logOutOutline } from 'ionicons/icons';
-import { AuthService } from '../../core/auth.service';
+import { startWith } from 'rxjs';
 import { ConferenceDataService } from '../../core/conference-data.service';
-import { Attendee } from '../../models/attendee';
-
-addIcons({ chevronDownOutline, chevronUpOutline, logOutOutline });
+import { Attendee } from '../../models/conference';
 
 @Component({
   selector: 'app-attendees',
   templateUrl: './attendees.page.html',
   styleUrls: ['./attendees.page.scss'],
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonButtons,
-    IonButton,
-    IonIcon,
-    IonContent,
-    IonSearchbar,
-  ],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar],
 })
 export class AttendeesPage {
   private readonly data = inject(ConferenceDataService);
-  private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly toastCtrl = inject(ToastController);
 
-  readonly attendees = toSignal(this.data.getAttendees(), {
-    initialValue: [] as Attendee[],
-  });
+  readonly attendees = toSignal(
+    this.data.getAttendees().pipe(startWith(null as Attendee[] | null)),
+    { initialValue: null as Attendee[] | null }
+  );
 
   readonly query = signal('');
   readonly industry = signal('all');
-  readonly expandedId = signal<string | null>(null);
+
+  readonly ready = computed(() => this.attendees() !== null);
 
   readonly industries = computed(() => {
-    const values = [...new Set(this.attendees().map((a) => a.industry))];
+    const values = [...new Set((this.attendees() ?? []).map((a) => a.industry))];
     return values.sort();
   });
 
@@ -58,12 +41,13 @@ export class AttendeesPage {
     const q = this.query().trim().toLowerCase();
     const industry = this.industry();
 
-    return this.attendees().filter((a) => {
+    return (this.attendees() ?? []).filter((a) => {
       const matchesIndustry = industry === 'all' || a.industry === industry;
       const matchesQuery =
         !q ||
         a.name.toLowerCase().includes(q) ||
         a.company.toLowerCase().includes(q) ||
+        a.title.toLowerCase().includes(q) ||
         a.industry.toLowerCase().includes(q);
       return matchesIndustry && matchesQuery;
     });
@@ -77,22 +61,21 @@ export class AttendeesPage {
     this.industry.set(value);
   }
 
-  toggleExpand(id: string): void {
-    this.expandedId.set(this.expandedId() === id ? null : id);
+  clearFilters(): void {
+    this.query.set('');
+    this.industry.set('all');
   }
 
-  async requestMeeting(attendee: Attendee): Promise<void> {
-    const toast = await this.toastCtrl.create({
-      message: `Prototype only — no backend. Meeting with ${attendee.name} was not sent.`,
-      duration: 2800,
-      color: 'primary',
-      position: 'bottom',
-    });
-    await toast.present();
+  openAttendee(id: string): void {
+    void this.router.navigate(['/attendee', id]);
   }
 
-  logout(): void {
-    this.auth.logout();
-    void this.router.navigateByUrl('/login');
+  initials(name: string): string {
+    return name
+      .split(' ')
+      .map((p) => p[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase();
   }
 }

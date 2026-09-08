@@ -19,7 +19,7 @@ export class LoginPage {
 
   constructor() {
     if (this.auth.isLoggedIn()) {
-      void this.router.navigateByUrl('/tabs/agenda');
+      void this.router.navigateByUrl('/tabs/home');
     }
   }
 
@@ -29,6 +29,6 @@ export class LoginPage {
       return;
     }
     this.auth.login(email);
-    void this.router.navigateByUrl('/tabs/agenda');
+    void this.router.navigateByUrl('/tabs/home');
   }
 }

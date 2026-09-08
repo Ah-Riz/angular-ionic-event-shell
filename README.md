@@ -1,16 +1,17 @@
 # Event Floor
 
-Portfolio learning app: a thin **Angular 19 + Ionic** mobile shell for a multi-day B2B conference attendee.
+Portfolio learning app: an **Angular 19 + Ionic** mobile shell for a multi-day B2B conference attendee.
 
 Built to show ramp-up for frontend roles that own cross-platform event / conference products (agenda, attendees, light networking UX) — not as claimed production event-platform experience.
 
 ## What it demonstrates
 
 - Mobile-first event UI with Angular 19 standalone components and Ionic
+- Home hub, agenda timeline, attendee directory, and detail screens
 - Screens wired to conference-shaped JSON via `HttpClient` (same mental model as API-backed features)
 - Simple client auth UX: login gate, route guard, logout (fake session in `localStorage`)
 - Session bookmarks persisted on device
-- Domain language that matches event products: sessions, tracks/rooms, attendees, industry
+- Domain language that matches event products: sessions, tracks/rooms, speakers, attendees, industry
 
 ## What it deliberately omits
 
@@ -21,9 +22,9 @@ Built to show ramp-up for frontend roles that own cross-platform event / confere
 ## Fake auth / localStorage
 
 - Login stores `{ email }` under `event-floor-session`
-- `authGuard` protects Agenda and Attendees; missing session redirects to `/login`
+- `authGuard` protects app routes; missing session redirects to `/login`
 - Bookmarks store session ids under `event-floor-bookmarks`
-- “Request meeting” shows a toast only — no network call
+- “Request meeting” confirms in an alert, then shows a toast — no network call
 
 This is intentional prototype design, not a security model.
 
@@ -53,9 +54,10 @@ Requires Wrangler auth (`npx wrangler login` or `CLOUDFLARE_API_TOKEN`) and DNS 
 ## Demo journey
 
 1. Sign in with any email (password unused)
-2. Browse the agenda by day, bookmark sessions, optionally filter to “My bookmarks”
-3. Search/filter attendees by name or industry, expand a row, tap “Request meeting”
-4. Log out from the header
+2. Land on Home — event overview, up-next session, today’s start
+3. Open Agenda, bookmark sessions, tap a row for session detail and speakers
+4. Browse Attendees, open a profile, confirm “Request meeting”
+5. Log out from Home
 
 ## Live demo
 

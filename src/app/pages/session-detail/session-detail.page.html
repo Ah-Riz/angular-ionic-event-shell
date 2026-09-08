@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border page-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/agenda" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Session</ion-title>
+    @if (session(); as s) {
+      <ion-buttons slot="end">
+        <ion-button
+          (click)="toggleBookmark(s.id)"
+          [attr.aria-label]="isBookmarked(s.id) ? 'Remove bookmark' : 'Bookmark session'"
+        >
+          <ion-icon
+            slot="icon-only"
+            class="bookmark-pop"
+            [class.on]="isBookmarked(s.id)"
+            [name]="isBookmarked(s.id) ? 'bookmark' : 'bookmark-outline'"
+            [color]="isBookmarked(s.id) ? 'primary' : 'medium'"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content ef-floor-bg">
+  <div class="ef-shell ef-enter detail-shell">
+    @if (session() === undefined) {
+      <div class="skeleton-stack" aria-hidden="true">
+        <div class="skel skel-title"></div>
+        <div class="skel skel-line"></div>
+        <div class="skel skel-block"></div>
+      </div>
+    } @else if (session() === null) {
+      <div class="empty-state">
+        <p>Session not found.</p>
+        <ion-button fill="outline" routerLink="/tabs/agenda">Browse agenda</ion-button>
+      </div>
+    } @else {
+      @if (session(); as s) {
+        <p class="when">
+          {{ s.day | date: 'EEEE d MMMM' }} · {{ s.startTime }}–{{ s.endTime }}
+        </p>
+        <h1>{{ s.title }}</h1>
+        <div class="chips">
+          <span class="chip">{{ s.track }}</span>
+          <span class="chip">{{ s.room }}</span>
+          <span class="chip">{{ s.level }}</span>
+          @for (tag of s.tags; track tag) {
+            <span class="chip">{{ tag }}</span>
+          }
+        </div>
+        <p class="description">{{ s.description }}</p>
+
+        <section class="block">
+          <h2>Speakers</h2>
+          <div class="speaker-list">
+            @for (person of speakers(); track person.id) {
+              <button type="button" class="speaker" (click)="openAttendee(person.id)">
+                <span class="avatar" [style.background]="person.avatarColor">
+                  {{ person.name.charAt(0) }}
+                </span>
+                <span class="meta">
+                  <strong>{{ person.name }}</strong>
+                  <span class="muted">{{ person.title }} · {{ person.company }}</span>
+                </span>
+              </button>
+            } @empty {
+              <p class="muted">Speaker details coming soon.</p>
+            }
+          </div>
+        </section>
+
+        @if (related().length) {
+          <section class="block">
+            <h2>More in {{ s.track }}</h2>
+            <div class="related">
+              @for (item of related(); track item.id) {
+                <button type="button" class="related-row" (click)="openSession(item.id)">
+                  <span class="time">{{ item.startTime }}</span>
+                  <strong>{{ item.title }}</strong>
+                </button>
+              }
+            </div>
+          </section>
+        }
+      }
+    }
+  </div>
+</ion-content>

@@ -1,0 +1,91 @@
+<ion-header class="ion-no-border page-header">
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" aria-label="Log out">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content ef-floor-bg">
+  <div class="ef-shell ef-enter">
+    @if (!ready()) {
+      <div class="skeleton-stack" aria-hidden="true">
+        <div class="skel skel-hero"></div>
+        <div class="skel skel-card"></div>
+        <div class="skel skel-line"></div>
+        <div class="skel skel-line short"></div>
+      </div>
+    } @else {
+      <section class="hero">
+        <p class="eyebrow">{{ event()!.city }} · {{ event()!.venue }}</p>
+        <h1>{{ event()!.name }}</h1>
+        <p class="tagline">{{ event()!.tagline }}</p>
+        <p class="dates muted">
+          {{ event()!.startDate | date: 'd MMM' }} –
+          {{ event()!.endDate | date: 'd MMM y' }}
+        </p>
+        <p class="signed-in muted">Signed in as {{ email() }}</p>
+      </section>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value">{{ bookmarkCount() }}</span>
+          <span class="stat-label">Saved sessions</span>
+        </div>
+        <a class="stat linkish" routerLink="/tabs/agenda">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <span>Full agenda</span>
+        </a>
+        <a class="stat linkish" routerLink="/tabs/attendees">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Attendees</span>
+        </a>
+      </div>
+
+      @if (upNext(); as next) {
+        <section class="up-next" (click)="openSession(next.id)" role="button" tabindex="0"
+          (keyup.enter)="openSession(next.id)">
+          <p class="section-label">Now on the floor</p>
+          <p class="when">
+            {{ next.day | date: 'EEE d MMM' }} · {{ next.startTime }}–{{ next.endTime }}
+          </p>
+          <h2>{{ next.title }}</h2>
+          <div class="chips">
+            <span class="chip">{{ next.track }}</span>
+            <span class="chip">{{ next.room }}</span>
+          </div>
+          <span class="open-cue">
+            Open session
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </span>
+        </section>
+      }
+
+      <section class="today">
+        <div class="section-head">
+          <h3>Today’s start</h3>
+          <a routerLink="/tabs/agenda">See all</a>
+        </div>
+        <div class="today-list">
+          @for (session of todayStrip(); track session.id; let i = $index) {
+            <button
+              type="button"
+              class="today-row ef-stagger"
+              [style.--i]="i"
+              (click)="openSession(session.id)"
+            >
+              <span class="time">{{ session.startTime }}</span>
+              <span class="body">
+                <strong>{{ session.title }}</strong>
+                <span class="muted">{{ session.track }} · {{ session.room }}</span>
+              </span>
+            </button>
+          }
+        </div>
+      </section>
+    }
+  </div>
+</ion-content>

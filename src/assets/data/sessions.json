@@ -7,7 +7,10 @@
     "title": "Opening Keynote: The Connected Event Floor",
     "track": "Main Stage",
     "room": "Hall A",
-    "description": "How organizers and exhibitors are reshaping B2B conference experiences with mobile-first attendee tools."
+    "description": "How organizers and exhibitors are reshaping B2B conference experiences with mobile-first attendee tools.",
+    "level": "All",
+    "tags": ["keynote", "strategy"],
+    "speakerIds": ["a1", "a17"]
   },
   {
     "id": "s2",
@@ -17,7 +20,10 @@
     "title": "Agenda Design That Scales",
     "track": "Product",
     "room": "Room 210",
-    "description": "Patterns for multi-day schedules, tracks, and rooms without overwhelming attendees."
+    "description": "Patterns for multi-day schedules, tracks, and rooms without overwhelming attendees.",
+    "level": "Intermediate",
+    "tags": ["agenda", "ux"],
+    "speakerIds": ["a4", "a11"]
   },
   {
     "id": "s3",
@@ -27,7 +33,10 @@
     "title": "Networking Without the Awkward",
     "track": "Community",
     "room": "Room 105",
-    "description": "Lightweight meeting requests, industry filters, and directory UX that feel purposeful."
+    "description": "Lightweight meeting requests, industry filters, and directory UX that feel purposeful.",
+    "level": "Intro",
+    "tags": ["networking", "directory"],
+    "speakerIds": ["a9", "a18"]
   },
   {
     "id": "s4",
@@ -37,66 +46,191 @@
     "title": "Building Event Frontends with Angular",
     "track": "Engineering",
     "room": "Room 310",
-    "description": "Standalone components, Ionic shells, and client data patterns for conference apps."
+    "description": "Standalone components, Ionic shells, and client data patterns for conference apps.",
+    "level": "Intermediate",
+    "tags": ["angular", "ionic"],
+    "speakerIds": ["a7", "a16"]
   },
   {
     "id": "s5",
     "day": "2026-09-15",
-    "startTime": "15:00",
-    "endTime": "15:45",
-    "title": "Sponsor Floor Walkthrough",
+    "startTime": "14:30",
+    "endTime": "15:15",
+    "title": "Measuring Booth Quality, Not Just Footfall",
     "track": "Expo",
-    "room": "Expo Hall",
-    "description": "A guided pass through booths mapped to attendee interests and industry tags."
+    "room": "Expo Theater",
+    "description": "Signals that separate curious walk-bys from meetings worth following up.",
+    "level": "Intermediate",
+    "tags": ["analytics", "expo"],
+    "speakerIds": ["a2", "a12"]
   },
   {
     "id": "s6",
+    "day": "2026-09-15",
+    "startTime": "15:30",
+    "endTime": "16:15",
+    "title": "Sponsor Floor Walkthrough",
+    "track": "Expo",
+    "room": "Expo Hall",
+    "description": "A guided pass through booths mapped to attendee interests and industry tags.",
+    "level": "All",
+    "tags": ["sponsors", "floor"],
+    "speakerIds": ["a12", "a5"]
+  },
+  {
+    "id": "s7",
     "day": "2026-09-16",
     "startTime": "09:30",
     "endTime": "10:15",
     "title": "Day 2 Kickoff: Operator Roundtable",
     "track": "Main Stage",
     "room": "Hall A",
-    "description": "Event operators share what worked (and what broke) at last season’s shows."
+    "description": "Event operators share what worked and what broke at last season’s shows.",
+    "level": "All",
+    "tags": ["operations", "panel"],
+    "speakerIds": ["a5", "a15"]
   },
   {
-    "id": "s7",
+    "id": "s8",
     "day": "2026-09-16",
     "startTime": "10:30",
     "endTime": "11:15",
     "title": "Personalizing the Attendee Path",
     "track": "Product",
     "room": "Room 210",
-    "description": "Bookmarks, saved agendas, and preference signals that stay on-device when needed."
+    "description": "Bookmarks, saved agendas, and preference signals that can stay on-device when needed.",
+    "level": "Intermediate",
+    "tags": ["personalization", "bookmarks"],
+    "speakerIds": ["a1", "a10"]
   },
   {
-    "id": "s8",
+    "id": "s9",
     "day": "2026-09-16",
     "startTime": "11:30",
     "endTime": "12:15",
     "title": "Secure-Enough Client Auth UX",
     "track": "Engineering",
     "room": "Room 310",
-    "description": "Login gates, route guards, and honest limits when you do not yet have a real IdP."
-  },
-  {
-    "id": "s9",
-    "day": "2026-09-16",
-    "startTime": "13:30",
-    "endTime": "14:15",
-    "title": "Industry Meetups: Fintech & SaaS",
-    "track": "Community",
-    "room": "Room 105",
-    "description": "Breakout networking for attendees filtered by industry and company stage."
+    "description": "Login gates, route guards, and honest limits when you do not yet have a real IdP.",
+    "level": "Advanced",
+    "tags": ["auth", "ux"],
+    "speakerIds": ["a14", "a7"]
   },
   {
     "id": "s10",
     "day": "2026-09-16",
-    "startTime": "15:00",
-    "endTime": "15:45",
+    "startTime": "13:30",
+    "endTime": "14:15",
+    "title": "Industry Meetups: Fintech and SaaS",
+    "track": "Community",
+    "room": "Room 105",
+    "description": "Breakout networking for attendees filtered by industry and company stage.",
+    "level": "All",
+    "tags": ["meetup", "fintech"],
+    "speakerIds": ["a3", "a8"]
+  },
+  {
+    "id": "s11",
+    "day": "2026-09-16",
+    "startTime": "14:30",
+    "endTime": "15:15",
+    "title": "Wayfinding That Matches the Agenda",
+    "track": "Operations",
+    "room": "Room 220",
+    "description": "Rooms, signage, and mobile cues that reduce “where is Hall A?” moments.",
+    "level": "Intro",
+    "tags": ["venue", "wayfinding"],
+    "speakerIds": ["a15", "a6"]
+  },
+  {
+    "id": "s12",
+    "day": "2026-09-16",
+    "startTime": "15:30",
+    "endTime": "16:15",
+    "title": "From Demo Booth to Pipeline",
+    "track": "Product",
+    "room": "Room 210",
+    "description": "How product marketing turns floor conversations into structured follow-up.",
+    "level": "Intermediate",
+    "tags": ["gtm", "sponsors"],
+    "speakerIds": ["a13", "a2"]
+  },
+  {
+    "id": "s13",
+    "day": "2026-09-17",
+    "startTime": "09:30",
+    "endTime": "10:15",
+    "title": "Offline-Friendly Agenda Clients",
+    "track": "Engineering",
+    "room": "Room 310",
+    "description": "Caching JSON agendas, bookmarks, and graceful reconnect on crowded Wi-Fi.",
+    "level": "Advanced",
+    "tags": ["offline", "performance"],
+    "speakerIds": ["a10", "a16"]
+  },
+  {
+    "id": "s14",
+    "day": "2026-09-17",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "title": "Research on the Floor",
+    "track": "Design",
+    "room": "Room 118",
+    "description": "Field methods for learning how attendees actually scan a timeline under time pressure.",
+    "level": "Intermediate",
+    "tags": ["research", "ux"],
+    "speakerIds": ["a11", "a4"]
+  },
+  {
+    "id": "s15",
+    "day": "2026-09-17",
+    "startTime": "11:30",
+    "endTime": "12:15",
+    "title": "Logistics for Badge and Freight",
+    "track": "Operations",
+    "room": "Room 220",
+    "description": "Badge print windows, freight docks, and the quiet chaos behind a smooth open.",
+    "level": "Intro",
+    "tags": ["logistics", "ops"],
+    "speakerIds": ["a6", "a5"]
+  },
+  {
+    "id": "s16",
+    "day": "2026-09-17",
+    "startTime": "13:30",
+    "endTime": "14:15",
+    "title": "Investor Office Hours",
+    "track": "Community",
+    "room": "Room 105",
+    "description": "Short meetings for founders shipping tools for organizers and exhibitors.",
+    "level": "All",
+    "tags": ["investors", "founders"],
+    "speakerIds": ["a8", "a18"]
+  },
+  {
+    "id": "s17",
+    "day": "2026-09-17",
+    "startTime": "14:30",
+    "endTime": "15:15",
     "title": "Closing: What Attendees Remember",
     "track": "Main Stage",
     "room": "Hall A",
-    "description": "Takeaways on agenda clarity, discovery, and the small interactions that stick."
+    "description": "Takeaways on agenda clarity, discovery, and the small interactions that stick.",
+    "level": "All",
+    "tags": ["keynote", "closing"],
+    "speakerIds": ["a1", "a9", "a17"]
+  },
+  {
+    "id": "s18",
+    "day": "2026-09-17",
+    "startTime": "15:30",
+    "endTime": "16:00",
+    "title": "Farewell Reception on the Floor",
+    "track": "Community",
+    "room": "Expo Hall",
+    "description": "Informal wrap with sponsors and speakers before everyone heads out.",
+    "level": "All",
+    "tags": ["networking", "social"],
+    "speakerIds": ["a12", "a15"]
   }
 ]
