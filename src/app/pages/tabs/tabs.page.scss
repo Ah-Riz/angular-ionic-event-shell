@@ -1,8 +1,21 @@
 ion-tab-bar {
-  --background: #ffffff;
-  border-top: 1px solid #e4e7ec;
+  --background: var(--ef-paper);
+  --border: 0;
+  border-top: 1px solid var(--ef-line);
+  height: 56px;
 }
 
-.tab-selected {
-  color: var(--ion-color-primary);
+ion-tab-button {
+  --color: var(--ef-steel);
+  --color-selected: var(--ef-signal);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+ion-tab-button.tab-selected {
+  color: var(--ef-signal);
+}
+
+ion-tab-button ion-icon {
+  font-size: 1.25rem;
 }

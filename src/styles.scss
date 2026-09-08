@@ -2,17 +2,58 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: var(--ion-background-color, #f5f7fa);
-  color: var(--ion-text-color, #1a1a1a);
+  font-family: var(--ef-font-body);
+  background: var(--ef-floor);
+  color: var(--ef-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+.brand-display {
+  font-family: var(--ef-font-display);
+  letter-spacing: -0.02em;
 }
 
 .muted {
-  color: #667085;
+  color: var(--ef-steel);
   font-size: 0.875rem;
+  line-height: 1.45;
 }
 
 .session-meta,
-.attendee-meta {
-  color: #667085;
-  font-size: 0.8125rem;
+.attendee-meta,
+.time-col {
+  color: var(--ef-steel);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--ef-line);
+  background: var(--ef-floor);
+  color: var(--ef-steel);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.chip + .chip {
+  margin-left: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

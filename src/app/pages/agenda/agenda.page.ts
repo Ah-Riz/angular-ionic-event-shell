@@ -8,9 +8,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
   IonLabel,
-  IonList,
   IonSegment,
   IonSegmentButton,
   IonTitle,
@@ -43,8 +41,6 @@ addIcons({ bookmark, bookmarkOutline, logOutOutline });
     IonSegmentButton,
     IonLabel,
     IonToggle,
-    IonList,
-    IonItem,
   ],
 })
 export class AgendaPage {

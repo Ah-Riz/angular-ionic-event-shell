@@ -1,41 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Event Floor</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-content" [fullscreen]="true">
+  <div class="login-shell">
+    <div class="login-panel">
+      <p class="brand-display">Event Floor</p>
+      <p class="lede">Browse the agenda, bookmark sessions, and find people on the floor.</p>
 
-<ion-content class="login-content">
-  <div class="login-panel">
-    <p class="brand">Event Floor</p>
-    <h1>Sign in to the conference</h1>
-    <p class="muted">
-      Demo login only — any email works. Password is unused.
-    </p>
-
-    <ion-list lines="full" class="login-form">
-      <ion-item>
+      <div class="login-form">
         <ion-input
+          class="field"
           label="Email"
           labelPlacement="stacked"
           type="email"
+          fill="outline"
           [(ngModel)]="email"
           autocomplete="email"
           required
         ></ion-input>
-      </ion-item>
-      <ion-item>
         <ion-input
+          class="field"
           label="Password (optional)"
           labelPlacement="stacked"
           type="password"
+          fill="outline"
           [(ngModel)]="password"
           autocomplete="current-password"
         ></ion-input>
-      </ion-item>
-    </ion-list>
+      </div>
 
-    <ion-button expand="block" (click)="submit()" [disabled]="!email.trim()">
-      Enter conference
-    </ion-button>
+      <ion-button expand="block" class="enter-btn" (click)="submit()" [disabled]="!email.trim()">
+        Enter conference
+      </ion-button>
+
+      <p class="muted hint">Demo sign-in — any email works. Password is unused.</p>
+    </div>
   </div>
 </ion-content>

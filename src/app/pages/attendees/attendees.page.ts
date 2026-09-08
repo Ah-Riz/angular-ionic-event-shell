@@ -1,6 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   IonButton,
@@ -8,12 +7,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
   IonSearchbar,
-  IonSelect,
-  IonSelectOption,
   IonTitle,
   IonToolbar,
   ToastController,
@@ -31,7 +25,6 @@ addIcons({ chevronDownOutline, chevronUpOutline, logOutOutline });
   templateUrl: './attendees.page.html',
   styleUrls: ['./attendees.page.scss'],
   imports: [
-    FormsModule,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -40,11 +33,6 @@ addIcons({ chevronDownOutline, chevronUpOutline, logOutOutline });
     IonIcon,
     IonContent,
     IonSearchbar,
-    IonSelect,
-    IonSelectOption,
-    IonList,
-    IonItem,
-    IonLabel,
   ],
 })
 export class AttendeesPage {
@@ -85,8 +73,8 @@ export class AttendeesPage {
     this.query.set(value ?? '');
   }
 
-  onIndustry(value: string | undefined): void {
-    this.industry.set(value ?? 'all');
+  onIndustry(value: string): void {
+    this.industry.set(value);
   }
 
   toggleExpand(id: string): void {

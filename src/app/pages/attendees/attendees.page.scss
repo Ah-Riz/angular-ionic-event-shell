@@ -1,24 +1,129 @@
-.filter-row {
-  padding: 0 1rem 0.5rem;
+ion-toolbar {
+  --border-width: 0 0 1px 0;
+  --border-color: var(--ef-line);
 }
 
-ion-item h2 {
-  margin: 0;
-  font-size: 1rem;
+ion-title {
+  font-family: var(--ef-font-display);
   font-weight: 600;
-  color: #1a1a1a;
 }
 
-ion-item p {
-  white-space: normal;
+.directory-top {
+  background: var(--ef-paper);
+  border-bottom: 1px solid var(--ef-line);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-bottom: 0.65rem;
+}
+
+ion-searchbar {
+  --background: var(--ef-floor);
+  --border-radius: 8px;
+  --box-shadow: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.industry-row {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0 0.85rem;
+  scrollbar-width: none;
+}
+
+.industry-row::-webkit-scrollbar {
+  display: none;
+}
+
+.industry-chip {
+  flex: 0 0 auto;
+  border: 1px solid var(--ef-line);
+  border-radius: 999px;
+  background: var(--ef-floor);
+  color: var(--ef-steel);
+  font-family: var(--ef-font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}
+
+.industry-chip.active {
+  border-color: var(--ef-signal);
+  background: rgba(10, 102, 194, 0.08);
+  color: var(--ef-signal);
+}
+
+.attendee-list {
+  padding: 0.75rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.attendee-card {
+  border: 1px solid var(--ef-line);
+  border-radius: 10px;
+  background: var(--ef-paper);
+  overflow: hidden;
+}
+
+.attendee-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 0.95rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.attendee-copy h2 {
+  margin: 0;
+  font-family: var(--ef-font-display);
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--ef-ink);
+}
+
+.attendee-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.8125rem;
+}
+
+.attendee-detail {
+  padding: 0 0.95rem 0.95rem;
+  border-top: 1px solid var(--ef-line);
+  animation: open 200ms ease-out;
 }
 
 .bio {
-  margin: 0.5rem 0 0.75rem;
-  color: #344054;
+  margin: 0.75rem 0 0.85rem;
+  color: var(--ef-steel);
+  font-size: 0.875rem;
+  line-height: 1.45;
 }
 
-ion-select {
-  width: 100%;
-  max-width: 100%;
+.empty {
+  padding: 1.5rem 0.25rem;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attendee-detail {
+    animation: none;
+  }
 }

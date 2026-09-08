@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Attendees</ion-title>
     <ion-buttons slot="end">
@@ -10,55 +10,72 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar
-    placeholder="Search name, company, industry"
-    [debounce]="200"
-    (ionInput)="onSearch($event.detail.value)"
-  ></ion-searchbar>
+  <div class="directory-top">
+    <ion-searchbar
+      placeholder="Search name, company, industry"
+      [debounce]="200"
+      (ionInput)="onSearch($event.detail.value)"
+    ></ion-searchbar>
 
-  <div class="filter-row">
-    <ion-select
-      label="Industry"
-      labelPlacement="stacked"
-      interface="popover"
-      [value]="industry()"
-      (ionChange)="onIndustry($event.detail.value)"
-    >
-      <ion-select-option value="all">All industries</ion-select-option>
+    <div class="industry-row" role="list">
+      <button
+        type="button"
+        class="industry-chip"
+        role="listitem"
+        [class.active]="industry() === 'all'"
+        (click)="onIndustry('all')"
+      >
+        All
+      </button>
       @for (item of industries(); track item) {
-        <ion-select-option [value]="item">{{ item }}</ion-select-option>
+        <button
+          type="button"
+          class="industry-chip"
+          role="listitem"
+          [class.active]="industry() === item"
+          (click)="onIndustry(item)"
+        >
+          {{ item }}
+        </button>
       }
-    </ion-select>
+    </div>
   </div>
 
-  <ion-list>
+  <div class="attendee-list">
     @for (attendee of filtered(); track attendee.id) {
-      <ion-item button detail="false" (click)="toggleExpand(attendee.id)">
-        <ion-label>
-          <h2>{{ attendee.name }}</h2>
-          <p class="attendee-meta">
-            {{ attendee.company }} · {{ attendee.industry }}
-          </p>
-          @if (expandedId() === attendee.id) {
+      <article
+        class="attendee-card"
+        [class.open]="expandedId() === attendee.id"
+      >
+        <button
+          type="button"
+          class="attendee-toggle"
+          (click)="toggleExpand(attendee.id)"
+          [attr.aria-expanded]="expandedId() === attendee.id"
+        >
+          <div class="attendee-copy">
+            <h2>{{ attendee.name }}</h2>
+            <p class="attendee-meta">
+              {{ attendee.company }} · {{ attendee.industry }}
+            </p>
+          </div>
+          <ion-icon
+            [name]="expandedId() === attendee.id ? 'chevron-up-outline' : 'chevron-down-outline'"
+            color="medium"
+          ></ion-icon>
+        </button>
+
+        @if (expandedId() === attendee.id) {
+          <div class="attendee-detail">
             <p class="bio">{{ attendee.bio }}</p>
-            <ion-button
-              size="small"
-              (click)="$event.stopPropagation(); requestMeeting(attendee)"
-            >
+            <ion-button size="small" (click)="requestMeeting(attendee)">
               Request meeting
             </ion-button>
-          }
-        </ion-label>
-        <ion-icon
-          slot="end"
-          [name]="expandedId() === attendee.id ? 'chevron-up-outline' : 'chevron-down-outline'"
-          color="medium"
-        ></ion-icon>
-      </ion-item>
+          </div>
+        }
+      </article>
     } @empty {
-      <ion-item lines="none">
-        <ion-label class="muted">No attendees match your filters.</ion-label>
-      </ion-item>
+      <p class="empty muted">No attendees match your filters.</p>
     }
-  </ion-list>
+  </div>
 </ion-content>

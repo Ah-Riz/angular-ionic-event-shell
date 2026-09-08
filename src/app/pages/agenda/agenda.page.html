@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Agenda</ion-title>
     <ion-buttons slot="end">
@@ -11,58 +11,68 @@
 
 <ion-content>
   @if (days().length) {
-    <ion-segment
-      [value]="activeDay()"
-      (ionChange)="onDayChange($event.detail.value)"
-      class="day-segment"
-    >
-      @for (day of days(); track day) {
-        <ion-segment-button [value]="day">
-          <ion-label>{{ day | date: 'EEE d MMM' }}</ion-label>
-        </ion-segment-button>
-      }
-    </ion-segment>
+    <div class="agenda-top">
+      <ion-segment
+        [value]="activeDay()"
+        (ionChange)="onDayChange($event.detail.value)"
+        class="day-segment"
+      >
+        @for (day of days(); track day) {
+          <ion-segment-button [value]="day">
+            <ion-label>{{ day | date: 'EEE d MMM' }}</ion-label>
+          </ion-segment-button>
+        }
+      </ion-segment>
 
-    <div class="filter-row">
-      <ion-label>My bookmarks</ion-label>
-      <ion-toggle
-        [checked]="bookmarksOnly()"
-        (ionChange)="onBookmarksOnly($event.detail.checked)"
-      ></ion-toggle>
+      <div class="filter-row">
+        <span class="filter-label">My bookmarks</span>
+        <ion-toggle
+          [checked]="bookmarksOnly()"
+          (ionChange)="onBookmarksOnly($event.detail.checked)"
+        ></ion-toggle>
+      </div>
     </div>
 
-    <ion-list>
-      @for (session of visibleSessions(); track session.id) {
-        <ion-item lines="full">
-          <ion-label>
-            <p class="session-meta">
-              {{ session.startTime }}–{{ session.endTime }} · {{ session.track }} ·
-              {{ session.room }}
-            </p>
+    <div class="timeline" role="list">
+      @for (session of visibleSessions(); track session.id; let last = $last) {
+        <article class="session-row" role="listitem" [class.is-last]="last">
+          <div class="time-col">
+            <span class="start">{{ session.startTime }}</span>
+            <span class="end">{{ session.endTime }}</span>
+          </div>
+          <div class="rail" aria-hidden="true">
+            <span class="node" [class.bookmarked]="isBookmarked(session.id)"></span>
+          </div>
+          <div class="session-body">
+            <div class="session-head">
+              <div class="chips">
+                <span class="chip">{{ session.track }}</span>
+                <span class="chip">{{ session.room }}</span>
+              </div>
+              <ion-button
+                fill="clear"
+                size="small"
+                class="bookmark-btn"
+                (click)="toggleBookmark(session.id)"
+                [attr.aria-label]="isBookmarked(session.id) ? 'Remove bookmark' : 'Bookmark session'"
+              >
+                <ion-icon
+                  slot="icon-only"
+                  [name]="isBookmarked(session.id) ? 'bookmark' : 'bookmark-outline'"
+                  [color]="isBookmarked(session.id) ? 'primary' : 'medium'"
+                ></ion-icon>
+              </ion-button>
+            </div>
             <h2>{{ session.title }}</h2>
-            <p>{{ session.description }}</p>
-          </ion-label>
-          <ion-button
-            fill="clear"
-            slot="end"
-            (click)="toggleBookmark(session.id)"
-            [attr.aria-label]="isBookmarked(session.id) ? 'Remove bookmark' : 'Bookmark session'"
-          >
-            <ion-icon
-              slot="icon-only"
-              [name]="isBookmarked(session.id) ? 'bookmark' : 'bookmark-outline'"
-              [color]="isBookmarked(session.id) ? 'primary' : 'medium'"
-            ></ion-icon>
-          </ion-button>
-        </ion-item>
+            <p class="desc">{{ session.description }}</p>
+          </div>
+        </article>
       } @empty {
-        <ion-item lines="none">
-          <ion-label class="muted">
-            {{ bookmarksOnly() ? 'No bookmarked sessions this day.' : 'No sessions.' }}
-          </ion-label>
-        </ion-item>
+        <p class="empty muted">
+          {{ bookmarksOnly() ? 'No bookmarked sessions this day.' : 'No sessions.' }}
+        </p>
       }
-    </ion-list>
+    </div>
   } @else {
     <div class="empty muted">Loading agenda…</div>
   }

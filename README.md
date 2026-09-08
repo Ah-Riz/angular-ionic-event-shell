@@ -16,7 +16,7 @@ Built to show ramp-up for frontend roles that own cross-platform event / confere
 
 - Real identity provider, JWT issuance, or production auth
 - Backend APIs, messaging, payments, admin CMS, push notifications
-- NestJS, edge workers, databases, or other architecture theater
+- NestJS, databases, or other architecture theater beyond a static Worker deploy
 
 ## Fake auth / localStorage
 
@@ -42,7 +42,13 @@ Production build:
 npm run build
 ```
 
-Output lands in `dist/event-floor/browser` (with `baseHref` set for GitHub Pages).
+Deploy to Cloudflare Worker (static assets + SPA fallback):
+
+```bash
+npm run deploy
+```
+
+Requires Wrangler auth (`npx wrangler login` or `CLOUDFLARE_API_TOKEN`) and DNS for `ahmadmaulana.net` on Cloudflare.
 
 ## Demo journey
 
@@ -53,7 +59,7 @@ Output lands in `dist/event-floor/browser` (with `baseHref` set for GitHub Pages
 
 ## Live demo
 
-https://ah-riz.github.io/angular-ionic-event-shell/
+https://konvergeedge.ahmadmaulana.net
 
 ## Honest scope
 

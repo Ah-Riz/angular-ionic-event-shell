@@ -1,33 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonInput,
-  IonItem,
-  IonList,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/angular/standalone';
+import { IonButton, IonContent, IonInput } from '@ionic/angular/standalone';
 import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [
-    FormsModule,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonItem,
-    IonInput,
-    IonButton,
-  ],
+  imports: [FormsModule, IonContent, IonInput, IonButton],
 })
 export class LoginPage {
   private readonly auth = inject(AuthService);

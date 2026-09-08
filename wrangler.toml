@@ -1,0 +1,11 @@
+name = "event-floor"
+compatibility_date = "2026-09-08"
+workers_dev = true
+
+[[routes]]
+pattern = "konvergeedge.ahmadmaulana.net/*"
+zone_name = "ahmadmaulana.net"
+
+[assets]
+directory = "./dist/event-floor/browser"
+not_found_handling = "single-page-application"

@@ -87,7 +87,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/angular-ionic-event-shell/"
+              "baseHref": "/"
             },
             "development": {
               "optimization": false,
