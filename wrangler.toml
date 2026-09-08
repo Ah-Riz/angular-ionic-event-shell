@@ -2,9 +2,9 @@ name = "event-floor"
 compatibility_date = "2026-09-08"
 workers_dev = true
 
-[[routes]]
-pattern = "konvergeedge.ahmadmaulana.net/*"
-zone_name = "ahmadmaulana.net"
+routes = [
+  { pattern = "konvergeedge.ahmadmaulana.net", custom_domain = true }
+]
 
 [assets]
 directory = "./dist/event-floor/browser"
