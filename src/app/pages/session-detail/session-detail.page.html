@@ -4,8 +4,8 @@
       <ion-back-button defaultHref="/tabs/agenda" text=""></ion-back-button>
     </ion-buttons>
     <ion-title>Session</ion-title>
-    @if (session(); as s) {
-      <ion-buttons slot="end">
+    <ion-buttons slot="end">
+      @if (session(); as s) {
         <ion-button
           (click)="toggleBookmark(s.id)"
           [attr.aria-label]="isBookmarked(s.id) ? 'Remove bookmark' : 'Bookmark session'"
@@ -18,8 +18,9 @@
             [color]="isBookmarked(s.id) ? 'primary' : 'medium'"
           ></ion-icon>
         </ion-button>
-      </ion-buttons>
-    }
+      }
+      <app-logout-button />
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

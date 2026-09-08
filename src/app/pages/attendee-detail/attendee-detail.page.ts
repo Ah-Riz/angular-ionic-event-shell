@@ -15,6 +15,7 @@ import {
 import { map, startWith } from 'rxjs';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee } from '../../models/conference';
+import { LogoutButtonComponent } from '../../shared/logout-button.component';
 
 @Component({
   selector: 'app-attendee-detail',
@@ -29,6 +30,7 @@ import { Attendee } from '../../models/conference';
     IonBackButton,
     IonButton,
     IonContent,
+    LogoutButtonComponent,
   ],
 })
 export class AttendeeDetailPage {

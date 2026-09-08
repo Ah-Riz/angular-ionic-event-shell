@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import {
+  IonButtons,
   IonContent,
   IonHeader,
   IonSearchbar,
@@ -11,12 +12,21 @@ import {
 import { startWith } from 'rxjs';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee } from '../../models/conference';
+import { LogoutButtonComponent } from '../../shared/logout-button.component';
 
 @Component({
   selector: 'app-attendees',
   templateUrl: './attendees.page.html',
   styleUrls: ['./attendees.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonContent,
+    IonSearchbar,
+    LogoutButtonComponent,
+  ],
 })
 export class AttendeesPage {
   private readonly data = inject(ConferenceDataService);

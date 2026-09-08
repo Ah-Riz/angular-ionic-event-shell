@@ -3,6 +3,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import {
+  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
@@ -19,6 +20,7 @@ import { startWith } from 'rxjs';
 import { BookmarkService } from '../../core/bookmark.service';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Session } from '../../models/conference';
+import { LogoutButtonComponent } from '../../shared/logout-button.component';
 
 addIcons({ bookmark, bookmarkOutline });
 
@@ -31,12 +33,14 @@ addIcons({ bookmark, bookmarkOutline });
     IonHeader,
     IonToolbar,
     IonTitle,
+    IonButtons,
     IonIcon,
     IonContent,
     IonSegment,
     IonSegmentButton,
     IonLabel,
     IonToggle,
+    LogoutButtonComponent,
   ],
 })
 export class AgendaPage {

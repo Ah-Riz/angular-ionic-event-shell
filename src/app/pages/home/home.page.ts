@@ -3,7 +3,6 @@ import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, RouterLink } from '@angular/router';
 import {
-  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -16,7 +15,6 @@ import {
   arrowForwardOutline,
   bookmarkOutline,
   calendarOutline,
-  logOutOutline,
   peopleOutline,
 } from 'ionicons/icons';
 import { startWith } from 'rxjs';
@@ -24,12 +22,12 @@ import { AuthService } from '../../core/auth.service';
 import { BookmarkService } from '../../core/bookmark.service';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { ConferenceEvent, Session } from '../../models/conference';
+import { LogoutButtonComponent } from '../../shared/logout-button.component';
 
 addIcons({
   arrowForwardOutline,
   bookmarkOutline,
   calendarOutline,
-  logOutOutline,
   peopleOutline,
 });
 
@@ -44,9 +42,9 @@ addIcons({
     IonToolbar,
     IonTitle,
     IonButtons,
-    IonButton,
     IonIcon,
     IonContent,
+    LogoutButtonComponent,
   ],
 })
 export class HomePage {
@@ -94,10 +92,5 @@ export class HomePage {
 
   openSession(id: string): void {
     void this.router.navigate(['/session', id]);
-  }
-
-  logout(): void {
-    this.auth.logout();
-    void this.router.navigateByUrl('/login');
   }
 }

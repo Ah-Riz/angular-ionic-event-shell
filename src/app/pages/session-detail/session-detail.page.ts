@@ -18,6 +18,7 @@ import { map, startWith } from 'rxjs';
 import { BookmarkService } from '../../core/bookmark.service';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee, Session } from '../../models/conference';
+import { LogoutButtonComponent } from '../../shared/logout-button.component';
 
 addIcons({ bookmark, bookmarkOutline });
 
@@ -36,6 +37,7 @@ addIcons({ bookmark, bookmarkOutline });
     IonButton,
     IonIcon,
     IonContent,
+    LogoutButtonComponent,
   ],
 })
 export class SessionDetailPage {
