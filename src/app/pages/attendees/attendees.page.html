@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Attendees</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" aria-label="Log out">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    placeholder="Search name, company, industry"
+    [debounce]="200"
+    (ionInput)="onSearch($event.detail.value)"
+  ></ion-searchbar>
+
+  <div class="filter-row">
+    <ion-select
+      label="Industry"
+      labelPlacement="stacked"
+      interface="popover"
+      [value]="industry()"
+      (ionChange)="onIndustry($event.detail.value)"
+    >
+      <ion-select-option value="all">All industries</ion-select-option>
+      @for (item of industries(); track item) {
+        <ion-select-option [value]="item">{{ item }}</ion-select-option>
+      }
+    </ion-select>
+  </div>
+
+  <ion-list>
+    @for (attendee of filtered(); track attendee.id) {
+      <ion-item button detail="false" (click)="toggleExpand(attendee.id)">
+        <ion-label>
+          <h2>{{ attendee.name }}</h2>
+          <p class="attendee-meta">
+            {{ attendee.company }} · {{ attendee.industry }}
+          </p>
+          @if (expandedId() === attendee.id) {
+            <p class="bio">{{ attendee.bio }}</p>
+            <ion-button
+              size="small"
+              (click)="$event.stopPropagation(); requestMeeting(attendee)"
+            >
+              Request meeting
+            </ion-button>
+          }
+        </ion-label>
+        <ion-icon
+          slot="end"
+          [name]="expandedId() === attendee.id ? 'chevron-up-outline' : 'chevron-down-outline'"
+          color="medium"
+        ></ion-icon>
+      </ion-item>
+    } @empty {
+      <ion-item lines="none">
+        <ion-label class="muted">No attendees match your filters.</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>

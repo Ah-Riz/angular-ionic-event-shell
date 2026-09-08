@@ -1,0 +1,102 @@
+[
+  {
+    "id": "s1",
+    "day": "2026-09-15",
+    "startTime": "09:00",
+    "endTime": "09:45",
+    "title": "Opening Keynote: The Connected Event Floor",
+    "track": "Main Stage",
+    "room": "Hall A",
+    "description": "How organizers and exhibitors are reshaping B2B conference experiences with mobile-first attendee tools."
+  },
+  {
+    "id": "s2",
+    "day": "2026-09-15",
+    "startTime": "10:00",
+    "endTime": "10:45",
+    "title": "Agenda Design That Scales",
+    "track": "Product",
+    "room": "Room 210",
+    "description": "Patterns for multi-day schedules, tracks, and rooms without overwhelming attendees."
+  },
+  {
+    "id": "s3",
+    "day": "2026-09-15",
+    "startTime": "11:15",
+    "endTime": "12:00",
+    "title": "Networking Without the Awkward",
+    "track": "Community",
+    "room": "Room 105",
+    "description": "Lightweight meeting requests, industry filters, and directory UX that feel purposeful."
+  },
+  {
+    "id": "s4",
+    "day": "2026-09-15",
+    "startTime": "13:30",
+    "endTime": "14:15",
+    "title": "Building Event Frontends with Angular",
+    "track": "Engineering",
+    "room": "Room 310",
+    "description": "Standalone components, Ionic shells, and client data patterns for conference apps."
+  },
+  {
+    "id": "s5",
+    "day": "2026-09-15",
+    "startTime": "15:00",
+    "endTime": "15:45",
+    "title": "Sponsor Floor Walkthrough",
+    "track": "Expo",
+    "room": "Expo Hall",
+    "description": "A guided pass through booths mapped to attendee interests and industry tags."
+  },
+  {
+    "id": "s6",
+    "day": "2026-09-16",
+    "startTime": "09:30",
+    "endTime": "10:15",
+    "title": "Day 2 Kickoff: Operator Roundtable",
+    "track": "Main Stage",
+    "room": "Hall A",
+    "description": "Event operators share what worked (and what broke) at last season’s shows."
+  },
+  {
+    "id": "s7",
+    "day": "2026-09-16",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "title": "Personalizing the Attendee Path",
+    "track": "Product",
+    "room": "Room 210",
+    "description": "Bookmarks, saved agendas, and preference signals that stay on-device when needed."
+  },
+  {
+    "id": "s8",
+    "day": "2026-09-16",
+    "startTime": "11:30",
+    "endTime": "12:15",
+    "title": "Secure-Enough Client Auth UX",
+    "track": "Engineering",
+    "room": "Room 310",
+    "description": "Login gates, route guards, and honest limits when you do not yet have a real IdP."
+  },
+  {
+    "id": "s9",
+    "day": "2026-09-16",
+    "startTime": "13:30",
+    "endTime": "14:15",
+    "title": "Industry Meetups: Fintech & SaaS",
+    "track": "Community",
+    "room": "Room 105",
+    "description": "Breakout networking for attendees filtered by industry and company stage."
+  },
+  {
+    "id": "s10",
+    "day": "2026-09-16",
+    "startTime": "15:00",
+    "endTime": "15:45",
+    "title": "Closing: What Attendees Remember",
+    "track": "Main Stage",
+    "room": "Hall A",
+    "description": "Takeaways on agenda clarity, discovery, and the small interactions that stick."
+  }
+]

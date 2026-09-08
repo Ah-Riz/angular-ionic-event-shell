@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agenda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" aria-label="Log out">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (days().length) {
+    <ion-segment
+      [value]="activeDay()"
+      (ionChange)="onDayChange($event.detail.value)"
+      class="day-segment"
+    >
+      @for (day of days(); track day) {
+        <ion-segment-button [value]="day">
+          <ion-label>{{ day | date: 'EEE d MMM' }}</ion-label>
+        </ion-segment-button>
+      }
+    </ion-segment>
+
+    <div class="filter-row">
+      <ion-label>My bookmarks</ion-label>
+      <ion-toggle
+        [checked]="bookmarksOnly()"
+        (ionChange)="onBookmarksOnly($event.detail.checked)"
+      ></ion-toggle>
+    </div>
+
+    <ion-list>
+      @for (session of visibleSessions(); track session.id) {
+        <ion-item lines="full">
+          <ion-label>
+            <p class="session-meta">
+              {{ session.startTime }}–{{ session.endTime }} · {{ session.track }} ·
+              {{ session.room }}
+            </p>
+            <h2>{{ session.title }}</h2>
+            <p>{{ session.description }}</p>
+          </ion-label>
+          <ion-button
+            fill="clear"
+            slot="end"
+            (click)="toggleBookmark(session.id)"
+            [attr.aria-label]="isBookmarked(session.id) ? 'Remove bookmark' : 'Bookmark session'"
+          >
+            <ion-icon
+              slot="icon-only"
+              [name]="isBookmarked(session.id) ? 'bookmark' : 'bookmark-outline'"
+              [color]="isBookmarked(session.id) ? 'primary' : 'medium'"
+            ></ion-icon>
+          </ion-button>
+        </ion-item>
+      } @empty {
+        <ion-item lines="none">
+          <ion-label class="muted">
+            {{ bookmarksOnly() ? 'No bookmarked sessions this day.' : 'No sessions.' }}
+          </ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  } @else {
+    <div class="empty muted">Loading agenda…</div>
+  }
+</ion-content>

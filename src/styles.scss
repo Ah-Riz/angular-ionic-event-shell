@@ -1,0 +1,18 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--ion-background-color, #f5f7fa);
+  color: var(--ion-text-color, #1a1a1a);
+}
+
+.muted {
+  color: #667085;
+  font-size: 0.875rem;
+}
+
+.session-meta,
+.attendee-meta {
+  color: #667085;
+  font-size: 0.8125rem;
+}

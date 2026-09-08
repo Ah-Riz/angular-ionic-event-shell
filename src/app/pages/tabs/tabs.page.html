@@ -1,0 +1,13 @@
+<ion-tabs>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="agenda" [routerLink]="['/tabs/agenda']" routerLinkActive="tab-selected">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Agenda</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="attendees" [routerLink]="['/tabs/attendees']" routerLinkActive="tab-selected">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Attendees</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

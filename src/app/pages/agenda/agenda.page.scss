@@ -1,0 +1,26 @@
+.day-segment {
+  margin: 0.75rem 1rem 0;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+ion-item h2 {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+ion-item p {
+  white-space: normal;
+}
+
+.empty {
+  padding: 2rem 1.25rem;
+}

@@ -1,0 +1,8 @@
+ion-tab-bar {
+  --background: #ffffff;
+  border-top: 1px solid #e4e7ec;
+}
+
+.tab-selected {
+  color: var(--ion-color-primary);
+}

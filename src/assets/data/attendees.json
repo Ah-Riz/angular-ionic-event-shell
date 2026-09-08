@@ -1,0 +1,58 @@
+[
+  {
+    "id": "a1",
+    "name": "Maya Chen",
+    "company": "Northwind Events",
+    "industry": "Event Tech",
+    "bio": "Product lead for attendee mobile experiences across multi-day B2B conferences."
+  },
+  {
+    "id": "a2",
+    "name": "Jordan Blake",
+    "company": "Harbor Analytics",
+    "industry": "SaaS",
+    "bio": "Builds dashboards for exhibitors measuring booth traffic and meeting quality."
+  },
+  {
+    "id": "a3",
+    "name": "Priya Nair",
+    "company": "Ledgerline",
+    "industry": "Fintech",
+    "bio": "Partnerships manager looking for venue and payment integrations for trade shows."
+  },
+  {
+    "id": "a4",
+    "name": "Sam Ortiz",
+    "company": "Brightfield Studios",
+    "industry": "Design",
+    "bio": "Designs mobile-first agenda and directory UIs for enterprise event products."
+  },
+  {
+    "id": "a5",
+    "name": "Elena Rossi",
+    "company": "Summit Ops",
+    "industry": "Event Tech",
+    "bio": "Operations director focused on on-site check-in and session capacity planning."
+  },
+  {
+    "id": "a6",
+    "name": "Chris Adeyemi",
+    "company": "ParcelWorks",
+    "industry": "Logistics",
+    "bio": "Exploring sponsor logistics tools and badge printing workflows for expo floors."
+  },
+  {
+    "id": "a7",
+    "name": "Hannah Park",
+    "company": "Cloudspan",
+    "industry": "SaaS",
+    "bio": "Frontend engineer evaluating Angular + Ionic stacks for cross-platform event shells."
+  },
+  {
+    "id": "a8",
+    "name": "Omar Haddad",
+    "company": "Meridian Capital",
+    "industry": "Fintech",
+    "bio": "Investor attending to meet founders building tools for conference organizers."
+  }
+]
