@@ -3,7 +3,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
   IonIcon,
   IonLabel,
-  IonRouterOutlet,
   IonTabBar,
   IonTabButton,
   IonTabs,
@@ -23,7 +22,6 @@ addIcons({ calendarOutline, homeOutline, peopleOutline });
     IonTabButton,
     IonIcon,
     IonLabel,
-    IonRouterOutlet,
     RouterLink,
     RouterLinkActive,
   ],

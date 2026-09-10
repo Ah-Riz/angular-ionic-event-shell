@@ -34,8 +34,8 @@
       </div>
     } @else if (session() === null) {
       <div class="empty-state">
-        <p>Session not found.</p>
-        <ion-button fill="outline" routerLink="/tabs/agenda">Browse agenda</ion-button>
+        <p class="muted">Session not found.</p>
+        <a class="text-action" routerLink="/tabs/agenda">Browse agenda</a>
       </div>
     } @else {
       @if (session(); as s) {
@@ -59,7 +59,7 @@
             @for (person of speakers(); track person.id) {
               <button type="button" class="speaker ef-surface" (click)="openAttendee(person.id)">
                 <span class="ef-avatar ef-avatar--sm" [style.background]="person.avatarColor">
-                  {{ person.name.charAt(0) }}
+                  {{ initials(person.name) }}
                 </span>
                 <span class="meta">
                   <strong>{{ person.name }}</strong>
@@ -75,9 +75,14 @@
         @if (related().length) {
           <section class="block">
             <h2>More in {{ s.track }}</h2>
-            <div class="related">
+            <div class="related" role="list">
               @for (item of related(); track item.id) {
-                <button type="button" class="related-row ef-surface" (click)="openSession(item.id)">
+                <button
+                  type="button"
+                  class="related-row"
+                  role="listitem"
+                  (click)="openSession(item.id)"
+                >
                   <span class="time">{{ item.startTime }}</span>
                   <strong>{{ item.title }}</strong>
                 </button>

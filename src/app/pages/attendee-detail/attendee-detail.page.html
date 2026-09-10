@@ -20,8 +20,8 @@
       </div>
     } @else if (!attendee()) {
       <div class="empty-state">
-        <p>Attendee not found.</p>
-        <ion-button fill="outline" routerLink="/tabs/attendees">Browse attendees</ion-button>
+        <p class="muted">Attendee not found.</p>
+        <a class="text-action" routerLink="/tabs/attendees">Browse attendees</a>
       </div>
     } @else {
       @if (attendee(); as person) {
@@ -29,7 +29,7 @@
           <span class="ef-avatar ef-avatar--lg" [style.background]="person.avatarColor">{{ initials() }}</span>
           <h1>{{ person.name }}</h1>
           <p class="role">{{ person.title }}</p>
-          <p class="company muted">{{ person.company }} · {{ person.industry }}</p>
+          <p class="company muted">{{ person.company }}</p>
           <span class="chip">{{ person.industry }}</span>
         </div>
 

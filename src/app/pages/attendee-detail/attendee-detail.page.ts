@@ -16,6 +16,7 @@ import { map, startWith } from 'rxjs';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee } from '../../models/conference';
 import { LogoutButtonComponent } from '../../shared/logout-button.component';
+import { personInitials } from '../../shared/person-initials';
 
 @Component({
   selector: 'app-attendee-detail',
@@ -40,8 +41,8 @@ export class AttendeeDetailPage {
   private readonly toastCtrl = inject(ToastController);
 
   private readonly attendeeId = toSignal(
-    this.route.paramMap.pipe(map((p) => p.get('id') ?? '')),
-    { initialValue: '' }
+    this.route.paramMap.pipe(map((p) => p.get('id'))),
+    { initialValue: null as string | null }
   );
 
   private readonly allAttendees = toSignal(
@@ -50,22 +51,15 @@ export class AttendeeDetailPage {
   );
 
   readonly attendee = computed(() => {
+    const id = this.attendeeId();
     const list = this.allAttendees();
-    if (!list) {
+    if (!id || !list) {
       return undefined;
     }
-    return list.find((a) => a.id === this.attendeeId()) ?? null;
+    return list.find((a) => a.id === id) ?? null;
   });
 
-  readonly initials = computed(() => {
-    const name = this.attendee()?.name ?? '';
-    return name
-      .split(' ')
-      .map((p) => p[0])
-      .join('')
-      .slice(0, 2)
-      .toUpperCase();
-  });
+  readonly initials = computed(() => personInitials(this.attendee()?.name ?? ''));
 
   async requestMeeting(): Promise<void> {
     const person = this.attendee();

@@ -235,12 +235,14 @@ h2,
 }
 
 .text-action {
+  display: inline-block;
   margin-top: 0.5rem;
   border: 0;
   background: transparent;
   color: var(--ef-signal);
   font-weight: 600;
   font-size: 0.875rem;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -257,7 +259,8 @@ ion-button:focus-visible,
 .attendee-card:focus-visible,
 .speaker:focus-visible,
 .related-row:focus-visible,
-.bookmark-btn:focus-visible {
+.bookmark-btn:focus-visible,
+.text-action:focus-visible {
   box-shadow: var(--ef-focus);
 }
 

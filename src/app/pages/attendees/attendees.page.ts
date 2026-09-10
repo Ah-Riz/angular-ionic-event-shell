@@ -13,6 +13,7 @@ import { startWith } from 'rxjs';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee } from '../../models/conference';
 import { LogoutButtonComponent } from '../../shared/logout-button.component';
+import { personInitials } from '../../shared/person-initials';
 
 @Component({
   selector: 'app-attendees',
@@ -81,11 +82,6 @@ export class AttendeesPage {
   }
 
   initials(name: string): string {
-    return name
-      .split(' ')
-      .map((p) => p[0])
-      .join('')
-      .slice(0, 2)
-      .toUpperCase();
+    return personInitials(name);
   }
 }

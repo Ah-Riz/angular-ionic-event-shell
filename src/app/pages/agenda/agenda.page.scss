@@ -136,6 +136,10 @@
   color: var(--ef-steel);
   font-size: 0.875rem;
   line-height: 1.45;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .skeleton-stack {
@@ -169,6 +173,7 @@
   .desc {
     font-size: 0.9375rem;
     max-width: 62ch;
+    -webkit-line-clamp: 2;
   }
 
   .node {

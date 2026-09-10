@@ -64,14 +64,15 @@
 
       <section class="today">
         <div class="section-head">
-          <h3>Today’s start</h3>
+          <h2>Today’s start</h2>
           <a routerLink="/tabs/agenda">See all</a>
         </div>
-        <div class="today-list">
+        <div class="today-list" role="list">
           @for (session of todayStrip(); track session.id; let i = $index) {
             <button
               type="button"
-              class="today-row ef-surface ef-stagger"
+              class="today-row ef-stagger"
+              role="listitem"
               [style.--i]="i"
               (click)="openSession(session.id)"
             >

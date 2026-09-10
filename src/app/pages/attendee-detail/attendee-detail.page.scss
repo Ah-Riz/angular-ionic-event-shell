@@ -34,7 +34,8 @@ h1 {
 
 .bio-block h2 {
   margin: 0 0 0.45rem;
-  font-size: 1rem;
+  font-family: var(--ef-font-display);
+  font-size: var(--ef-type-row);
   font-weight: 650;
 }
 

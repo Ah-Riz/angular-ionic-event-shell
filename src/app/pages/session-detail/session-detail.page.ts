@@ -19,6 +19,7 @@ import { BookmarkService } from '../../core/bookmark.service';
 import { ConferenceDataService } from '../../core/conference-data.service';
 import { Attendee, Session } from '../../models/conference';
 import { LogoutButtonComponent } from '../../shared/logout-button.component';
+import { personInitials } from '../../shared/person-initials';
 
 addIcons({ bookmark, bookmarkOutline });
 
@@ -47,8 +48,8 @@ export class SessionDetailPage {
   private readonly router = inject(Router);
 
   private readonly sessionId = toSignal(
-    this.route.paramMap.pipe(map((p) => p.get('id') ?? '')),
-    { initialValue: '' }
+    this.route.paramMap.pipe(map((p) => p.get('id'))),
+    { initialValue: null as string | null }
   );
 
   private readonly allSessions = toSignal(
@@ -61,11 +62,12 @@ export class SessionDetailPage {
   );
 
   readonly session = computed(() => {
+    const id = this.sessionId();
     const list = this.allSessions();
-    if (!list) {
+    if (!id || !list) {
       return undefined;
     }
-    return list.find((s) => s.id === this.sessionId()) ?? null;
+    return list.find((s) => s.id === id) ?? null;
   });
 
   readonly speakers = computed(() => {
@@ -89,6 +91,10 @@ export class SessionDetailPage {
   });
 
   readonly bookmarkIds = this.bookmarks.ids;
+
+  initials(name: string): string {
+    return personInitials(name);
+  }
 
   isBookmarked(id: string): boolean {
     return this.bookmarkIds().has(id);
