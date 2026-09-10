@@ -11,12 +11,12 @@
 </ion-header>
 
 <ion-content class="page-content ef-floor-bg">
-  <div class="ef-shell ef-enter detail-shell">
+  <div class="ef-shell ef-enter">
     @if (attendee() === undefined) {
       <div class="skeleton-stack" aria-hidden="true">
-        <div class="skel skel-avatar"></div>
-        <div class="skel skel-title"></div>
-        <div class="skel skel-block"></div>
+        <div class="ef-skeleton skel-avatar"></div>
+        <div class="ef-skeleton skel-title"></div>
+        <div class="ef-skeleton skel-block"></div>
       </div>
     } @else if (!attendee()) {
       <div class="empty-state">
@@ -25,8 +25,8 @@
       </div>
     } @else {
       @if (attendee(); as person) {
-        <div class="profile-card">
-          <span class="avatar" [style.background]="person.avatarColor">{{ initials() }}</span>
+        <div class="profile-card ef-surface ef-surface--raised">
+          <span class="ef-avatar ef-avatar--lg" [style.background]="person.avatarColor">{{ initials() }}</span>
           <h1>{{ person.name }}</h1>
           <p class="role">{{ person.title }}</p>
           <p class="company muted">{{ person.company }} · {{ person.industry }}</p>

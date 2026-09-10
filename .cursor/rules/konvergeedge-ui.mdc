@@ -1,0 +1,62 @@
+---
+description: KonvergeEdge UI design contract — tokens, shell, type, surfaces, motion
+globs: src/**/*.{scss,css,html}
+alwaysApply: false
+---
+
+# KonvergeEdge UI
+
+Cool floor-plan conference shell. Identity is locked: floor `#F4F6F8`, paper white, ink `#0B1220`, steel `#5B6B7C`, signal `#0A66C2`, Sora + IBM Plex Sans, `.ef-floor-bg` grid. Signature is the **agenda timeline** (non-card rows). Do not invent a new aesthetic.
+
+## Tokens only
+
+- Colors, radii, shadows, type sizes, and skeleton stops come from `var(--ef-*)` in `src/theme/variables.css`.
+- Never hardcode `#0a66c2`, skeleton hex, or ink rgba. Use `rgba(var(--ef-signal-rgb), a)` or `--ef-signal-soft` / `--ef-signal-wash`.
+- Page SCSS is layout-only (grids, timeline geometry, filter rows). Do not redefine headers, type roles, shimmer, or surface chrome.
+
+## Shell
+
+- Authenticated content uses `.ef-shell`. Attendees (directory) also uses `.ef-shell--wide`.
+- Do not add per-page `max-width` overrides (no `.detail-shell`).
+- Vertical padding lives on `.ef-shell` (top `1.25rem`, bottom `max(2rem, safe-area)`). Inside `.ef-sticky-top`, shell padding is reset by global CSS.
+- Login uses `.login-shell` / `.login-layout`, not `.ef-shell`.
+
+## Header
+
+- Every authenticated page: `<ion-header class="ion-no-border page-header">`.
+- Directory (attendees): add `page-header--wide`.
+- Toolbar border, display `ion-title`, and content-aligned padding are global — do not copy them into page SCSS.
+- Login has no toolbar; `.brand-display` is the hero.
+
+## Type roles
+
+Only these roles:
+
+| Role | Where | Notes |
+|------|--------|--------|
+| Brand | login `.brand-display` | Sora, large clamp |
+| Page title | `ion-title` | Sora 600, global |
+| Hero `h1` | home + details | `var(--ef-type-hero)` |
+| Row `h2` | session rows, section heads | `var(--ef-type-row)`, weight 650 |
+| Kicker | `.ef-kicker` | signal, uppercase, `--ef-type-kicker` |
+| Lede | `.ef-lede` | steel, `--ef-type-lede` |
+| Body / meta / chip | `.muted`, meta cols, `.chip` | global primitives |
+
+Display font for brand, titles, person names, and stat values. Body font elsewhere.
+
+## Surfaces
+
+- Interactive paper blocks use `.ef-surface` (and `.ef-surface--raised` when a soft shadow is needed).
+- Agenda `.session-row` / `.session-body` stay transparent on the floor — never card them.
+- Do not wrap non-interactive text blocks in card chrome.
+
+## Motion
+
+- Enter with `.ef-enter` / `.ef-stagger` only (defined once in `styles.scss`).
+- Loading placeholders use `.ef-skeleton` (shared `@keyframes ef-shimmer`).
+- Bookmark press pop may stay local on session detail.
+- Honor `prefers-reduced-motion` via the global rule — do not duplicate full reduced-motion blocks unless targeting a local transition.
+
+## Naming
+
+Prefer shared `ef-*` classes over page-local synonyms (`eyebrow`, `section-label`, `panel-kicker`, `tagline`, `lede` → `.ef-kicker` / `.ef-lede`). Sticky filter chrome → `.ef-sticky-top`. Avatars → `.ef-avatar` + `--sm` / `--md` / `--lg`.

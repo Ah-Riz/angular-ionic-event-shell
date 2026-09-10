@@ -1,35 +1,3 @@
-.page-content {
-  --background: transparent;
-}
-
-.page-header ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
-  --padding-start: var(--ef-gutter);
-  --padding-end: var(--ef-gutter-right);
-}
-
-.page-header ion-title {
-  font-family: var(--ef-font-display);
-  font-weight: 600;
-}
-
-@media (min-width: 640px) {
-  .page-header ion-toolbar {
-    --padding-start: max(var(--ef-gutter), calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter)));
-    --padding-end: max(var(--ef-gutter-right), calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter-right)));
-  }
-}
-
-.agenda-top {
-  padding: 0.75rem 0 0;
-  background: var(--ef-paper);
-  border-bottom: 1px solid var(--ef-line);
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
 .day-segment {
   margin-bottom: 0.35rem;
 }
@@ -49,18 +17,13 @@
   color: var(--ef-ink);
 }
 
-.timeline {
-  padding-top: 1.15rem;
-  padding-bottom: max(2rem, env(safe-area-inset-bottom));
-}
-
 .session-row {
   display: grid;
   grid-template-columns: 3.25rem 1rem minmax(0, 1fr);
   column-gap: 0.65rem;
   min-height: 5.5rem;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--ef-radius-sm);
   transition: background 160ms ease;
 }
 
@@ -74,7 +37,7 @@
   flex-direction: column;
   align-items: flex-end;
   padding-top: 0.15rem;
-  font-size: 0.75rem;
+  font-size: var(--ef-type-kicker);
   font-weight: 600;
   line-height: 1.3;
 }
@@ -148,7 +111,7 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--ef-radius-sm);
 }
 
 .bookmark-btn ion-icon {
@@ -162,7 +125,7 @@
 
 .session-body h2 {
   margin: 0.4rem 0 0.35rem;
-  font-size: 1.02rem;
+  font-size: var(--ef-type-row);
   font-weight: 650;
   line-height: 1.3;
   color: var(--ef-ink);
@@ -175,37 +138,10 @@
   line-height: 1.45;
 }
 
-.empty {
-  padding: 2rem 0;
-}
-
-.empty-state {
-  padding: 2rem 0.25rem;
-  text-align: center;
-}
-
-.text-action {
-  margin-top: 0.5rem;
-  border: 0;
-  background: transparent;
-  color: var(--ef-signal);
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
 .skeleton-stack {
-  padding-top: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.skel {
-  border-radius: 10px;
-  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f8 50%, #e8edf3 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
 }
 
 .skel-bar {
@@ -216,15 +152,6 @@
   height: 5.5rem;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
-
 @media (min-width: 640px) {
   .session-row {
     grid-template-columns: 4rem 1.15rem minmax(0, 1fr);
@@ -232,15 +159,11 @@
   }
 
   .time-col {
-    font-size: 0.8125rem;
+    font-size: var(--ef-type-meta);
   }
 
   .session-body {
     padding-bottom: 1.5rem;
-  }
-
-  .session-body h2 {
-    font-size: 1.12rem;
   }
 
   .desc {
@@ -254,19 +177,3 @@
   }
 }
 
-@media (min-width: 900px) {
-  .timeline {
-    padding-top: 1.75rem;
-  }
-
-  .session-body h2 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .node,
-  .bookmark-btn ion-icon {
-    transition: none;
-  }
-}

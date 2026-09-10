@@ -11,16 +11,16 @@
   <div class="ef-shell ef-enter">
     @if (!ready()) {
       <div class="skeleton-stack" aria-hidden="true">
-        <div class="skel skel-hero"></div>
-        <div class="skel skel-card"></div>
-        <div class="skel skel-line"></div>
-        <div class="skel skel-line short"></div>
+        <div class="ef-skeleton skel-hero"></div>
+        <div class="ef-skeleton skel-card"></div>
+        <div class="ef-skeleton skel-line"></div>
+        <div class="ef-skeleton skel-line short"></div>
       </div>
     } @else {
       <section class="hero">
-        <p class="eyebrow">{{ event()!.city }} · {{ event()!.venue }}</p>
+        <p class="ef-kicker">{{ event()!.city }} · {{ event()!.venue }}</p>
         <h1>{{ event()!.name }}</h1>
-        <p class="tagline">{{ event()!.tagline }}</p>
+        <p class="ef-lede tagline">{{ event()!.tagline }}</p>
         <p class="dates muted">
           {{ event()!.startDate | date: 'd MMM' }} –
           {{ event()!.endDate | date: 'd MMM y' }}
@@ -29,24 +29,24 @@
       </section>
 
       <div class="stats">
-        <div class="stat">
+        <div class="stat ef-surface">
           <span class="stat-value">{{ bookmarkCount() }}</span>
           <span class="stat-label">Saved sessions</span>
         </div>
-        <a class="stat linkish" routerLink="/tabs/agenda">
+        <a class="stat linkish ef-surface" routerLink="/tabs/agenda">
           <ion-icon name="calendar-outline"></ion-icon>
           <span>Full agenda</span>
         </a>
-        <a class="stat linkish" routerLink="/tabs/attendees">
+        <a class="stat linkish ef-surface" routerLink="/tabs/attendees">
           <ion-icon name="people-outline"></ion-icon>
           <span>Attendees</span>
         </a>
       </div>
 
       @if (upNext(); as next) {
-        <section class="up-next" (click)="openSession(next.id)" role="button" tabindex="0"
+        <section class="up-next ef-surface ef-surface--raised" (click)="openSession(next.id)" role="button" tabindex="0"
           (keyup.enter)="openSession(next.id)">
-          <p class="section-label">Now on the floor</p>
+          <p class="ef-kicker">Now on the floor</p>
           <p class="when">
             {{ next.day | date: 'EEE d MMM' }} · {{ next.startTime }}–{{ next.endTime }}
           </p>
@@ -71,7 +71,7 @@
           @for (session of todayStrip(); track session.id; let i = $index) {
             <button
               type="button"
-              class="today-row ef-stagger"
+              class="today-row ef-surface ef-stagger"
               [style.--i]="i"
               (click)="openSession(session.id)"
             >

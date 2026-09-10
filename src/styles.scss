@@ -45,9 +45,25 @@ h2,
   line-height: 1.4;
 }
 
+.ef-kicker {
+  margin: 0;
+  color: var(--ef-signal);
+  font-size: var(--ef-type-kicker);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ef-lede {
+  margin: 0;
+  color: var(--ef-steel);
+  font-size: var(--ef-type-lede);
+  line-height: 1.45;
+}
+
 .ef-floor-bg {
   background:
-    linear-gradient(165deg, rgba(10, 102, 194, 0.06) 0%, transparent 45%),
+    linear-gradient(165deg, var(--ef-signal-wash) 0%, transparent 45%),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -70,11 +86,106 @@ h2,
   max-width: var(--ef-content-max);
   margin-inline: auto;
   padding-inline: var(--ef-gutter) var(--ef-gutter-right);
+  padding-top: 1.25rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
   box-sizing: border-box;
 }
 
 .ef-shell--wide {
   max-width: var(--ef-directory-max);
+}
+
+.ef-sticky-top {
+  background: var(--ef-paper);
+  border-bottom: 1px solid var(--ef-line);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-top: 0.75rem;
+}
+
+.ef-sticky-top .ef-shell {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ef-surface {
+  border: 1px solid var(--ef-line);
+  border-radius: var(--ef-radius-md);
+  background: var(--ef-paper);
+}
+
+.ef-surface--raised {
+  border-radius: var(--ef-radius-lg);
+  box-shadow: var(--ef-shadow-soft);
+}
+
+.ef-avatar {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--ion-color-primary-contrast);
+  font-family: var(--ef-font-display);
+  font-weight: 700;
+}
+
+.ef-avatar--sm {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.85rem;
+}
+
+.ef-avatar--md {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 0.85rem;
+}
+
+.ef-avatar--lg {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.25rem;
+}
+
+.page-content {
+  --background: transparent;
+}
+
+.page-header ion-toolbar {
+  --border-width: 0 0 1px 0;
+  --border-color: var(--ef-line);
+  --padding-start: var(--ef-gutter);
+  --padding-end: var(--ef-gutter-right);
+}
+
+.page-header ion-title {
+  font-family: var(--ef-font-display);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .page-header ion-toolbar {
+    --padding-start: max(
+      var(--ef-gutter),
+      calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter))
+    );
+    --padding-end: max(
+      var(--ef-gutter-right),
+      calc((100% - var(--ef-content-max)) / 2 + var(--ef-gutter-right))
+    );
+  }
+
+  .page-header--wide ion-toolbar {
+    --padding-start: max(
+      var(--ef-gutter),
+      calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter))
+    );
+    --padding-end: max(
+      var(--ef-gutter-right),
+      calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter-right))
+    );
+  }
 }
 
 .ef-enter {
@@ -97,6 +208,42 @@ h2,
   }
 }
 
+.ef-skeleton {
+  border-radius: var(--ef-radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--ef-skeleton-a) 0%,
+    var(--ef-skeleton-b) 50%,
+    var(--ef-skeleton-a) 100%
+  );
+  background-size: 200% 100%;
+  animation: ef-shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes ef-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.empty-state {
+  padding: 2rem 0.25rem;
+  text-align: center;
+}
+
+.text-action {
+  margin-top: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--ef-signal);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
 :focus-visible {
   outline: none;
   box-shadow: var(--ef-focus);
@@ -105,7 +252,12 @@ h2,
 button:focus-visible,
 ion-button:focus-visible,
 .industry-chip:focus-visible,
-.attendee-toggle:focus-visible {
+.session-row:focus-visible,
+.today-row:focus-visible,
+.attendee-card:focus-visible,
+.speaker:focus-visible,
+.related-row:focus-visible,
+.bookmark-btn:focus-visible {
   box-shadow: var(--ef-focus);
 }
 

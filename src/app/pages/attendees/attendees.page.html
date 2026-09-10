@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border page-header">
+<ion-header class="ion-no-border page-header page-header--wide">
   <ion-toolbar>
     <ion-title>Attendees</ion-title>
     <ion-buttons slot="end">
@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="page-content ef-floor-bg">
-  <div class="directory-top ef-enter">
+  <div class="ef-sticky-top ef-enter">
     <div class="ef-shell ef-shell--wide">
       <ion-searchbar
         placeholder="Search name, company, industry"
@@ -44,21 +44,21 @@
 
   @if (!ready()) {
     <div class="ef-shell ef-shell--wide skeleton-grid" aria-hidden="true">
-      <div class="skel skel-card"></div>
-      <div class="skel skel-card"></div>
-      <div class="skel skel-card"></div>
-      <div class="skel skel-card"></div>
+      <div class="ef-skeleton skel-card"></div>
+      <div class="ef-skeleton skel-card"></div>
+      <div class="ef-skeleton skel-card"></div>
+      <div class="ef-skeleton skel-card"></div>
     </div>
   } @else {
     <div class="ef-shell ef-shell--wide attendee-list">
       @for (attendee of filtered(); track attendee.id; let i = $index) {
         <button
           type="button"
-          class="attendee-card ef-stagger"
+          class="attendee-card ef-surface ef-surface--raised ef-stagger"
           [style.--i]="i"
           (click)="openAttendee(attendee.id)"
         >
-          <span class="avatar" [style.background]="attendee.avatarColor">
+          <span class="ef-avatar ef-avatar--md" [style.background]="attendee.avatarColor">
             {{ initials(attendee.name) }}
           </span>
           <span class="copy">

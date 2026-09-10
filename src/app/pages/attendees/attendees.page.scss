@@ -1,41 +1,10 @@
-.page-content {
-  --background: transparent;
-}
-
-.page-header ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
-  --padding-start: var(--ef-gutter);
-  --padding-end: var(--ef-gutter-right);
-}
-
-.page-header ion-title {
-  font-family: var(--ef-font-display);
-  font-weight: 600;
-}
-
-@media (min-width: 640px) {
-  .page-header ion-toolbar {
-    --padding-start: max(var(--ef-gutter), calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter)));
-    --padding-end: max(
-      var(--ef-gutter-right),
-      calc((100% - var(--ef-directory-max)) / 2 + var(--ef-gutter-right))
-    );
-  }
-}
-
-.directory-top {
-  background: var(--ef-paper);
-  border-bottom: 1px solid var(--ef-line);
-  position: sticky;
-  top: 0;
-  z-index: 2;
+.ef-sticky-top {
   padding-bottom: 0.75rem;
 }
 
 ion-searchbar {
   --background: var(--ef-floor);
-  --border-radius: 8px;
+  --border-radius: var(--ef-radius-sm);
   --box-shadow: none;
   padding: 0.65rem 0 0.35rem;
   min-height: 3rem;
@@ -57,11 +26,11 @@ ion-searchbar {
   flex: 0 0 auto;
   min-height: 2.25rem;
   border: 1px solid var(--ef-line);
-  border-radius: 999px;
+  border-radius: var(--ef-radius-pill);
   background: var(--ef-floor);
   color: var(--ef-steel);
   font-family: var(--ef-font-body);
-  font-size: 0.75rem;
+  font-size: var(--ef-type-kicker);
   font-weight: 600;
   padding: 0.4rem 0.85rem;
   cursor: pointer;
@@ -70,7 +39,7 @@ ion-searchbar {
 
 .industry-chip.active {
   border-color: var(--ef-signal);
-  background: rgba(10, 102, 194, 0.08);
+  background: var(--ef-signal-soft);
   color: var(--ef-signal);
 }
 
@@ -78,8 +47,6 @@ ion-searchbar {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.65rem;
-  padding-top: 0.9rem;
-  padding-bottom: max(2rem, env(safe-area-inset-bottom));
 }
 
 .attendee-card {
@@ -88,30 +55,13 @@ ion-searchbar {
   gap: 0.85rem;
   width: 100%;
   text-align: left;
-  border: 1px solid var(--ef-line);
-  border-radius: 12px;
-  background: var(--ef-paper);
   padding: 0.95rem 1rem;
   cursor: pointer;
-  box-shadow: 0 1px 0 rgba(11, 18, 32, 0.02);
-  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 180ms ease;
 }
 
 .attendee-card:active {
   transform: scale(0.99);
-}
-
-.avatar {
-  flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: var(--ef-font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
 }
 
 .copy {
@@ -129,56 +79,28 @@ ion-searchbar {
 }
 
 .role {
-  font-size: 0.8125rem;
+  font-size: var(--ef-type-meta);
   font-weight: 600;
   color: var(--ef-ink);
 }
 
 .attendee-meta {
-  font-size: 0.75rem;
+  font-size: var(--ef-type-kicker);
 }
 
 .empty-state {
   grid-column: 1 / -1;
-  padding: 1.5rem 0.25rem;
-  text-align: center;
-}
-
-.text-action {
-  margin-top: 0.5rem;
-  border: 0;
-  background: transparent;
-  color: var(--ef-signal);
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
 }
 
 .skeleton-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.65rem;
-  padding-top: 0.9rem;
-}
-
-.skel {
-  border-radius: 12px;
-  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f8 50%, #e8edf3 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
 }
 
 .skel-card {
   height: 5rem;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
+  border-radius: var(--ef-radius-lg);
 }
 
 @media (min-width: 640px) {
@@ -186,7 +108,6 @@ ion-searchbar {
   .skeleton-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.85rem;
-    padding-top: 1.15rem;
   }
 }
 

@@ -8,15 +8,34 @@
   --ef-signal-rgb: 10, 102, 194;
   --ef-signal-shade: #0959aa;
   --ef-signal-tint: #2375c8;
+  --ef-signal-soft: rgba(var(--ef-signal-rgb), 0.08);
+  --ef-signal-wash: rgba(var(--ef-signal-rgb), 0.06);
+
+  --ef-skeleton-a: #e8edf3;
+  --ef-skeleton-b: #f4f6f8;
+
+  --ef-radius-sm: 8px;
+  --ef-radius-md: 10px;
+  --ef-radius-lg: 12px;
+  --ef-radius-pill: 999px;
+
+  --ef-shadow-soft: 0 10px 28px rgba(11, 18, 32, 0.05);
 
   --ef-font-display: "Sora", system-ui, sans-serif;
   --ef-font-body: "IBM Plex Sans", system-ui, sans-serif;
+
+  --ef-type-brand: clamp(2rem, 8vw, 2.75rem);
+  --ef-type-hero: clamp(1.5rem, 4.5vw, 1.85rem);
+  --ef-type-row: 1.125rem;
+  --ef-type-kicker: 0.75rem;
+  --ef-type-lede: 1rem;
+  --ef-type-meta: 0.8125rem;
 
   --ef-gutter: max(1rem, env(safe-area-inset-left));
   --ef-gutter-right: max(1rem, env(safe-area-inset-right));
   --ef-content-max: 40rem;
   --ef-directory-max: 60rem;
-  --ef-focus: 0 0 0 3px rgba(10, 102, 194, 0.35);
+  --ef-focus: 0 0 0 3px rgba(var(--ef-signal-rgb), 0.35);
 
   --ion-font-family: var(--ef-font-body);
 
@@ -51,13 +70,13 @@
 @media (min-width: 900px) {
   :root {
     --ef-content-max: 45rem;
-    --ef-directory-max: 56rem;
+    --ef-directory-max: 60rem;
   }
 }
 
 @media (min-width: 1200px) {
   :root {
     --ef-content-max: 48rem;
-    --ef-directory-max: 60rem;
+    --ef-directory-max: 64rem;
   }
 }

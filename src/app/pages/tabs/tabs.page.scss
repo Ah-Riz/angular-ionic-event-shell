@@ -16,7 +16,7 @@ ion-tab-bar {
 ion-tab-button {
   --color: var(--ef-steel);
   --color-selected: var(--ef-signal);
-  font-size: 0.7rem;
+  font-size: var(--ef-type-kicker);
   font-weight: 600;
   min-height: 48px;
 }
@@ -32,7 +32,7 @@ ion-tab-button ion-icon {
 @media (min-width: 900px) {
   ion-tab-bar {
     border-inline: 1px solid var(--ef-line);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: var(--ef-radius-lg);
+    border-top-right-radius: var(--ef-radius-lg);
   }
 }

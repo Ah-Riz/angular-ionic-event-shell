@@ -10,13 +10,13 @@
 <ion-content class="page-content ef-floor-bg">
   @if (!ready()) {
     <div class="ef-shell skeleton-stack" aria-hidden="true">
-      <div class="skel skel-bar"></div>
-      <div class="skel skel-row"></div>
-      <div class="skel skel-row"></div>
-      <div class="skel skel-row"></div>
+      <div class="ef-skeleton skel-bar"></div>
+      <div class="ef-skeleton skel-row"></div>
+      <div class="ef-skeleton skel-row"></div>
+      <div class="ef-skeleton skel-row"></div>
     </div>
   } @else if (days().length) {
-    <div class="agenda-top ef-enter">
+    <div class="ef-sticky-top ef-enter">
       <div class="ef-shell">
         <ion-segment
           [value]="activeDay()"

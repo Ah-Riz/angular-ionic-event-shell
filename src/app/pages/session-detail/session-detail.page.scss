@@ -1,33 +1,13 @@
-.page-content {
-  --background: transparent;
-}
-
-.page-header ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
-}
-
-.page-header ion-title {
-  font-family: var(--ef-font-display);
-  font-weight: 600;
-}
-
-.detail-shell {
-  padding-top: 1.15rem;
-  padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
-  max-width: 45rem;
-}
-
 .when {
   margin: 0;
   color: var(--ef-steel);
-  font-size: 0.8125rem;
+  font-size: var(--ef-type-meta);
   font-variant-numeric: tabular-nums;
 }
 
 h1 {
   margin: 0.4rem 0 0.75rem;
-  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  font-size: var(--ef-type-hero);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -42,7 +22,7 @@ h1 {
 .description {
   margin: 0 0 1.5rem;
   color: var(--ef-ink);
-  font-size: 1rem;
+  font-size: var(--ef-type-lede);
   line-height: 1.55;
 }
 
@@ -70,9 +50,6 @@ h1 {
   gap: 0.75rem;
   width: 100%;
   text-align: left;
-  border: 1px solid var(--ef-line);
-  border-radius: 10px;
-  background: var(--ef-paper);
   padding: 0.8rem 0.9rem;
   cursor: pointer;
   transition: transform 160ms ease, border-color 160ms ease;
@@ -83,18 +60,6 @@ h1 {
   transform: scale(0.99);
 }
 
-.avatar {
-  flex: 0 0 auto;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: var(--ef-font-display);
-  font-weight: 700;
-}
-
 .meta {
   display: flex;
   flex-direction: column;
@@ -102,10 +67,15 @@ h1 {
   min-width: 0;
 }
 
+.meta strong {
+  font-family: var(--ef-font-display);
+  font-weight: 650;
+}
+
 .related-row .time {
   flex: 0 0 3rem;
   color: var(--ef-signal);
-  font-size: 0.8125rem;
+  font-size: var(--ef-type-meta);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -132,13 +102,6 @@ h1 {
   gap: 0.75rem;
 }
 
-.skel {
-  border-radius: 10px;
-  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f8 50%, #e8edf3 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
-}
-
 .skel-title {
   height: 4rem;
 }
@@ -150,18 +113,4 @@ h1 {
 
 .skel-block {
   height: 8rem;
-}
-
-.empty-state {
-  padding: 2rem 0;
-  text-align: center;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
 }

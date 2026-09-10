@@ -1,50 +1,17 @@
-.page-content {
-  --background: transparent;
-}
-
-.page-header ion-toolbar {
-  --border-width: 0 0 1px 0;
-  --border-color: var(--ef-line);
-}
-
-.page-header ion-title {
-  font-family: var(--ef-font-display);
-  font-weight: 600;
-}
-
-.detail-shell {
-  padding-top: 1.25rem;
-  padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
-  max-width: 45rem;
-}
-
 .profile-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 1.25rem 1.1rem;
-  border: 1px solid var(--ef-line);
-  border-radius: 14px;
-  background: var(--ef-paper);
-  box-shadow: 0 10px 28px rgba(11, 18, 32, 0.05);
 }
 
-.avatar {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: var(--ef-font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
+.ef-avatar--lg {
   margin-bottom: 0.85rem;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(1.4rem, 4vw, 1.75rem);
+  font-size: var(--ef-type-hero);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -79,7 +46,7 @@ h1 {
 }
 
 .meet-btn {
-  --border-radius: 8px;
+  --border-radius: var(--ef-radius-sm);
   font-weight: 600;
   min-height: 2.75rem;
 }
@@ -87,7 +54,7 @@ h1 {
 .hint {
   margin: 0.75rem 0 0;
   text-align: center;
-  font-size: 0.8125rem;
+  font-size: var(--ef-type-meta);
 }
 
 .skeleton-stack {
@@ -95,13 +62,6 @@ h1 {
   flex-direction: column;
   gap: 0.75rem;
   align-items: flex-start;
-}
-
-.skel {
-  border-radius: 10px;
-  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f8 50%, #e8edf3 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
 }
 
 .skel-avatar {
@@ -118,18 +78,4 @@ h1 {
 .skel-block {
   width: 100%;
   height: 7rem;
-}
-
-.empty-state {
-  padding: 2rem 0;
-  text-align: center;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
 }
